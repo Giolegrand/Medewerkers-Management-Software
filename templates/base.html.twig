@@ -14,50 +14,36 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
     </head>
     <body>
-        <header class="container">
+        <header>
+        <div class="container">
             <div class="row">
-                <div class="col-lg-1 hidden visible-lg">
-                	<img src="https://registrations.roundtexel.com/assets/images/ROTLogo.png" alt="logo" class="img-responsive">
-                </div>
+                <div class="col-md-1 col-md-offset-0 col-xs-4 col-xs-offset-4"><img class="img-responsive" src="https://registrations.roundtexel.com/assets/images/ROTLogo.png"></div>
             </div>
-        </header>
+        </div>
         <nav class="navbar navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav nav">
-                        <li><a href="#">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Afdelingen <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active" role="presentation"><a href="#">Home </a></li>
+                        <li class="dropdown open"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">Afdelingen <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
                                 {% for a in afdelingen %}
-                                    <li><a href="//{{a.frontName}}.{{host}}">{{ a.frontName }}</a></li>
+                                    <li role="presentation"><a href="//{a.frontName}.{{host}}">{{ a.frontName }}</a></li>
                                 {% endfor %}
-                                {#<li><a href="#">Veiligheid</a></li>
-                                <li><a href="#">Transport</a></li>
-                                <li><a href="#">Wedstrijd</a></li>
-                                <li><a href="#">Strand</a></li>
-                                <li><a href="#">Fourage</a></li>
-                                <li><a href="#">Tent</a></li>
-                                <li><a href="#">Vergunningen</a></li>
-                                <li><a href="#">Pr & Media</a></li>
-                                <li><a href="#">Informatie</a></li>
-                                <li><a href="#">Kleding</a></li>#}
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ path('login') }}">Login</a></li>
+                        <li role="presentation"><a href="#">Login </a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+    </header>
+        
         <main class="container">
             <div class="row">
                 <div class="col-xs-12">

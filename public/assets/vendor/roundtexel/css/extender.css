@@ -6,7 +6,8 @@
 	padding: 0;
 }
 
-
 .checkbox-spacer{
 	padding-top: 10px;
 }
+
+.nav.navbar-nav{margin:0 -15px}
