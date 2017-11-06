@@ -1,53 +1,5 @@
 [
     {
-        "name": "symfony/flex",
-        "version": "v1.0.34",
-        "version_normalized": "1.0.34.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/flex.git",
-            "reference": "a04e41d3530029531c79c724b2e87ea4b0f9365d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/flex/zipball/a04e41d3530029531c79c724b2e87ea4b0f9365d",
-            "reference": "a04e41d3530029531c79c724b2e87ea4b0f9365d",
-            "shasum": ""
-        },
-        "require": {
-            "composer-plugin-api": "^1.1",
-            "php": "^7.0"
-        },
-        "require-dev": {
-            "composer/composer": "^1.4",
-            "symfony/phpunit-bridge": "^3.2.8"
-        },
-        "time": "2017-10-29T18:41:04+00:00",
-        "type": "composer-plugin",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            },
-            "class": "Symfony\\Flex\\Flex"
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Flex\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien.potencier@gmail.com"
-            }
-        ]
-    },
-    {
         "name": "psr/log",
         "version": "1.0.2",
         "version_normalized": "1.0.2.0",
@@ -3182,69 +3134,6 @@
         ]
     },
     {
-        "name": "doctrine/doctrine-migrations-bundle",
-        "version": "v1.3.0",
-        "version_normalized": "1.3.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-            "reference": "8ddb4ad9207945c3e3f6287ee2485a51f249358b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/8ddb4ad9207945c3e3f6287ee2485a51f249358b",
-            "reference": "8ddb4ad9207945c3e3f6287ee2485a51f249358b",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/doctrine-bundle": "~1.0",
-            "doctrine/migrations": "^1.1",
-            "php": ">=5.4.0",
-            "symfony/framework-bundle": "~2.7|~3.3|~4.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.8"
-        },
-        "time": "2017-10-30T19:37:38+00:00",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Doctrine\\Bundle\\MigrationsBundle\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            },
-            {
-                "name": "Doctrine Project",
-                "homepage": "http://www.doctrine-project.org"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Symfony DoctrineMigrationsBundle",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "dbal",
-            "migrations",
-            "schema"
-        ]
-    },
-    {
         "name": "doctrine/instantiator",
         "version": "1.1.0",
         "version_normalized": "1.1.0.0",
@@ -4412,6 +4301,117 @@
         "keywords": [
             "annotations",
             "controllers"
+        ]
+    },
+    {
+        "name": "symfony/flex",
+        "version": "v1.0.39",
+        "version_normalized": "1.0.39.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/flex.git",
+            "reference": "1f769098ee289320e1b86404bde02825cbae9488"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/flex/zipball/1f769098ee289320e1b86404bde02825cbae9488",
+            "reference": "1f769098ee289320e1b86404bde02825cbae9488",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.1",
+            "php": "^7.0"
+        },
+        "require-dev": {
+            "composer/composer": "^1.4",
+            "symfony/phpunit-bridge": "^3.2.8"
+        },
+        "time": "2017-11-02T23:43:15+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            },
+            "class": "Symfony\\Flex\\Flex"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Flex\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien.potencier@gmail.com"
+            }
+        ]
+    },
+    {
+        "name": "doctrine/doctrine-migrations-bundle",
+        "version": "v1.3.1",
+        "version_normalized": "1.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
+            "reference": "a9e506369f931351a2a6dd2aef588a822802b1b7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/a9e506369f931351a2a6dd2aef588a822802b1b7",
+            "reference": "a9e506369f931351a2a6dd2aef588a822802b1b7",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/doctrine-bundle": "~1.0",
+            "doctrine/migrations": "^1.1",
+            "php": ">=5.4.0",
+            "symfony/framework-bundle": "~2.7|~3.3|~4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.36"
+        },
+        "time": "2017-11-01T09:13:26+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Doctrine\\Bundle\\MigrationsBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Doctrine Project",
+                "homepage": "http://www.doctrine-project.org"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Symfony DoctrineMigrationsBundle",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "dbal",
+            "migrations",
+            "schema"
         ]
     }
 ]

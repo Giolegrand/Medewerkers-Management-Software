@@ -18,7 +18,7 @@ final class Versions
   'doctrine/dbal' => 'v2.6.2@1a4ee83a5a709555f2c6f9057a3aacf892451c7e',
   'doctrine/doctrine-bundle' => '1.7.2@41d6b7c9a1a37e08ab1c321193446c12d6afb5ed',
   'doctrine/doctrine-cache-bundle' => '1.3.2@9baecbd6bfdd1123b0cf8c1b88fee0170a84ddd1',
-  'doctrine/doctrine-migrations-bundle' => 'v1.3.0@8ddb4ad9207945c3e3f6287ee2485a51f249358b',
+  'doctrine/doctrine-migrations-bundle' => 'v1.3.1@a9e506369f931351a2a6dd2aef588a822802b1b7',
   'doctrine/inflector' => 'v1.2.0@e11d84c6e018beedd929cff5220969a3c6d1d462',
   'doctrine/instantiator' => '1.1.0@185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda',
   'doctrine/lexer' => 'v1.0.1@83893c552fd2045dd78aef794c31e694c37c0b8c',
@@ -44,6 +44,7 @@ final class Versions
   'symfony/debug' => 'v3.3.10@eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd',
   'symfony/dependency-injection' => 'v3.3.10@8ebad929aee3ca185b05f55d9cc5521670821ad1',
   'symfony/doctrine-bridge' => 'v3.3.10@e14d2d703300e196d3f1212a3edfb704f7bc1fd0',
+  'symfony/dotenv' => 'v3.3.10@ac86b6e484ae9224be290f3a0686858ba18d49d5',
   'symfony/event-dispatcher' => 'v3.3.10@d7ba037e4b8221956ab1e221c73c9e27e05dd423',
   'symfony/filesystem' => 'v3.3.10@90bc45abf02ae6b7deb43895c1052cb0038506f1',
   'symfony/finder' => 'v3.3.10@773e19a491d97926f236942484cb541560ce862d',
@@ -78,9 +79,8 @@ final class Versions
   'ua-parser/uap-php' => 'v3.4.7@ea47d0b12517670270930938c063d899b420019b',
   'zendframework/zend-code' => '3.3.0@6b1059db5b368db769e4392c6cb6cc139e56640d',
   'zendframework/zend-eventmanager' => '3.2.0@9d72db10ceb6e42fb92350c0cb54460da61bd79c',
-  'symfony/dotenv' => 'v3.3.10@ac86b6e484ae9224be290f3a0686858ba18d49d5',
-  'symfony/flex' => 'v1.0.34@a04e41d3530029531c79c724b2e87ea4b0f9365d',
-  '__root__' => '9999999-dev@aa30feb8140b39791ab3b35007a8713912f08332',
+  'symfony/flex' => 'v1.0.39@1f769098ee289320e1b86404bde02825cbae9488',
+  '__root__' => '9999999-dev@2f3cc874f73e2c516a71a71dc2a5347457cf6ea6',
 );
 
     private function __construct()
