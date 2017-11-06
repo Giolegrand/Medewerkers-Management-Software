@@ -80,7 +80,7 @@ final class Versions
   'zendframework/zend-eventmanager' => '3.2.0@9d72db10ceb6e42fb92350c0cb54460da61bd79c',
   'symfony/dotenv' => 'v3.3.10@ac86b6e484ae9224be290f3a0686858ba18d49d5',
   'symfony/flex' => 'v1.0.34@a04e41d3530029531c79c724b2e87ea4b0f9365d',
-  '__root__' => '1.0.0.0@',
+  '__root__' => '9999999-dev@aa30feb8140b39791ab3b35007a8713912f08332',
 );
 
     private function __construct()
