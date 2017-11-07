@@ -29,7 +29,7 @@ class AuthenticationController extends Controller
         if($subdomain == $baseHost||null == $afdeling)
             return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
-        
+        dump($this->container->get('session'));
 
         $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
         // get the login error if there is one
