@@ -56,7 +56,7 @@ class AuthenticationController extends Controller
     /**
      * @Route("/forgotPassword", name="wwVergeten")
      */
-    public function wachtwoordVergetenAction(UserPasswordEncoderInterface $encoder)
+    public function wachtwoordVergetenAction(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $currentHost = $request->getHttpHost();
         $baseHost = getenv("base_host");
