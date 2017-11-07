@@ -10,6 +10,6 @@ class MedewerkerRepository extends EntityRepository implements UserLoaderInterfa
 			->where('u.email = :email')
 			->setParameter('email', $username)
 			->getQuery()
-			->getOneOrNulResult();
+			->getOneOrNullResult();
 	}
 }
