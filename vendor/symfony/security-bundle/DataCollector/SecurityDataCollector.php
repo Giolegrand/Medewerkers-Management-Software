@@ -112,7 +112,7 @@ class SecurityDataCollector extends DataCollector implements LateDataCollectorIn
                 'token' => $token,
                 'token_class' => $this->hasVarDumper ? new ClassStub(get_class($token)) : get_class($token),
                 'logout_url' => $logoutUrl,
-                'user' => $token->getUsername(),
+                'user' => $token->getEmail(),
                 'roles' => array_map(function (RoleInterface $role) { return $role->getRole(); }, $assignedRoles),
                 'inherited_roles' => array_unique(array_map(function (RoleInterface $role) { return $role->getRole(); }, $inheritedRoles)),
                 'supports_role_hierarchy' => null !== $this->roleHierarchy,
