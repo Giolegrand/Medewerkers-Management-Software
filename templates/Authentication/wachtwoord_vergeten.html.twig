@@ -1,7 +1,44 @@
-{% extends "::base.html.twig" %}
-
-{% block title %}AppBundle:Authentication:wachtwoordVergeten{% endblock %}
-
-{% block content %}
-<h1>{{pass}}</h1>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Round Texel Medewerkers login</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="assets/vendor/bootswatch/spacelab/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+            <link rel="stylesheet" href="assets/vendor/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+            <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
+            <link rel="stylesheet" href="assets/vendor/roundtexel/css/extender.css">
+            {% block extraStylesheets %}{% endblock %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+	</head>
+	<body>
+	    <div class="login-dark">
+	        <form method="post" action="{{ path('login') }}">
+	            <h2 class="sr-only">Round Texel Medewerkers Login</h2>
+	            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+	            <h1>{{pass}}</h1>
+	            <div class="form-group">
+	                <input class="form-control" type="email" name="email" placeholder="Email">
+	            </div>
+	            <div class="form-group">
+	                <input class="form-control" type="password" name="password" placeholder="Password">
+	            </div>
+	            <div class="form-group">
+	                <button class="btn btn-primary btn-block" type="submit">Log In</button>
+	            </div>
+	            <a href="{{ path("wwVergeten") }}" class="forgot">Forgot your email or password?</a>
+	            <a href="{{ path("homepage", { "afdeling": afdeling }) }}">Back to website</a></form>
+	    </div>
+	    {% block javascripts %}
+            <script src="assets/vendor/jquery/jquery.min.js"></script>
+            <script src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="assets/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+            <script src="assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+            {% block customscripts %}{% endblock %}
+        {% endblock %}
+	</body>
+</html>
