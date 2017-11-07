@@ -67,10 +67,6 @@
 						{{ error.message }}
 					</div>
 	            {% endif %}
-
-	            {% if app.user %}
-					{% dump app.user %}
-	            {% endif %}
 	            <a href="{{ path("wwVergeten") }}">Forgot your email or password?</a>
 	            <a href="{{ path("homepage", { "afdeling": afdeling }) }}">Back to website</a>
 	        </form>
