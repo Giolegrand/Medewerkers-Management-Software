@@ -894,16 +894,6 @@ class Medewerker implements UserInterface
     }
 
     /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getpassword()
-    {
-        return $this->password;
-    }
-
-    /**
      * Set role
      *
      * @param string $role
