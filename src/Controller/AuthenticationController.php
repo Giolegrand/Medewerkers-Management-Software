@@ -71,13 +71,10 @@ class AuthenticationController extends Controller
         if($subdomain == $baseHost||null == $afdeling)
             return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
-        
-
         $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
 
 
         return $this->render('Authentication/wachtwoord_vergeten.html.twig', array(
-            "pass" => $pass,
             'afdelingen' => $afdelingen,
             "afdeling" => $subdomain,
             "host" => $baseHost,
