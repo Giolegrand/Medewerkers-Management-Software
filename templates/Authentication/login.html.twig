@@ -63,8 +63,9 @@
 	                <button class="btn btn-primary btn-block" type="submit">Log In</button>
 	            </div>
 	            {% if error %}
+	            {% dump error %}
 					<div class="form-group">
-						{{ error }}
+						{{ error.message }}
 					</div>
 	            {% endif %}
 	            <a href="{{ path("wwVergeten") }}">Forgot your email or password?</a>
