@@ -61,7 +61,9 @@
 	            </div>
 	            <div class="form-group">
 	                <button class="btn btn-primary btn-block" type="submit">Log In</button>
-	            </div><a href="#" class="forgot">Forgot your email or password?</a><a href="#">Back to website</a></form>
+	            </div>
+	            <a href="{{ path("wwVergeten") }}" class="forgot">Forgot your email or password?</a>
+	            <a href="{{ path("homepage") }}">Back to website</a></form>
 	    </div>
 	    {% block javascripts %}
             <script src="assets/vendor/jquery/jquery.min.js"></script>
