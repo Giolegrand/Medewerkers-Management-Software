@@ -7,8 +7,8 @@ security:
         in_memory: { memory: ~ }
         db_provider:
             entity:
-                class: App\Entity\Medewerker
-                property: email
+                class: App:Medewerker
+                property: username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
