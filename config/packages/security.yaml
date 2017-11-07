@@ -1,13 +1,32 @@
 security:
     # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\Medewerker:
+            algorythm: bcrypt
     providers:
         in_memory: { memory: ~ }
+        db_provider:
+            entity:
+                class: App\Entity\Medewerker
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            provider: db_provider
             anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+                username_parameter: _email
+            logout:
+                path: /logout
+                target: /
+            remember_me:
+                secret: '%secret%'
+                lifetime: 604800 #1 week in seconden
+                path: /
 
             # activate different ways to authenticate
 
