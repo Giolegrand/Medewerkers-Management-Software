@@ -41,6 +41,7 @@ class AuthenticationController extends Controller
             'last_email' => $lastEmail,
             'error' => $error,
             'afdelingen' => $afdelingen,
+            "afdeling" => $subdomain,
             "host" => $baseHost,
         ));
     }
@@ -80,6 +81,7 @@ class AuthenticationController extends Controller
         return $this->render('Authentication/wachtwoord_vergeten.html.twig', array(
             "pass" => $pass,
             'afdelingen' => $afdelingen,
+            "afdeling" => $subdomain,
             "host" => $baseHost,
         ));
     }
