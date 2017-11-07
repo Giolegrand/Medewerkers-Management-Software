@@ -32,7 +32,7 @@
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Afdelingen <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 {% for a in afdelingen %}
-                                    <li role="presentation"><a href="//{a.frontName}.{{host}}">{{ a.frontName }}</a></li>
+                                    <li role="presentation"><a href="//{{a.frontName}}.{{host}}">{{ a.frontName }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
