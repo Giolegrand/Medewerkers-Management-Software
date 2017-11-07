@@ -75,8 +75,6 @@ class AuthenticationController extends Controller
 
         $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
 
-        $user = new \App\Entity\Medewerker();
-        $pass = $encoder->encodePassword($user, "changeme");
 
         return $this->render('Authentication/wachtwoord_vergeten.html.twig', array(
             "pass" => $pass,
