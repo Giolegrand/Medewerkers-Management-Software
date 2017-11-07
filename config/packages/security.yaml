@@ -24,7 +24,7 @@ security:
                 path: /logout
                 target: /
             remember_me:
-                secret: '%secret%'
+                secret: '%env(APP_SECRET)%'
                 lifetime: 604800 #1 week in seconden
                 path: /
 
