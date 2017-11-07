@@ -22,7 +22,7 @@ class AuthenticationController extends Controller
 
         // last username entered by the user
         $lastEmail = $authUtils->getLastUsername();
-        return $this->render('App:Authentication:login.html.twig', array(
+        return $this->render('Authentication/login.html.twig', array(
             'last_email' => $lastEmail,
             'error' => $error,
             'afdelingen' => $afdelingen,
@@ -44,7 +44,7 @@ class AuthenticationController extends Controller
         $user = new \App\Entity\Medewerker();
         $pass = $encoder->encodePassword($user, "test123");
 
-        return $this->render('App:Authentication:wachtwoord_vergeten.html.twig', array(
+        return $this->render('Authentication/wachtwoord_vergeten.html.twig', array(
             "pass" => $pass,
         ));
     }
