@@ -18,6 +18,7 @@
     {% set text %}
         {% if collector.enabled %}
             {% if collector.token %}
+                {% dump(collector) %}
                 <div class="sf-toolbar-info-piece">
                     <b>Logged in as</b>
                     <span>{{ collector.user }}</span>
