@@ -193,9 +193,9 @@ class Medewerker implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="wachtwoord", type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=255)
      */
-    private $wachtwoord;
+    private $password;
 
     /**
      * @var string
@@ -281,7 +281,7 @@ class Medewerker implements UserInterface
 
     public function getPassword()
     {
-        return $this->wachtwoord;
+        return $this->password;
     }
 
     public function getRoles()
@@ -880,27 +880,27 @@ class Medewerker implements UserInterface
     }
 
     /**
-     * Set wachtwoord
+     * Set password
      *
-     * @param string $wachtwoord
+     * @param string $password
      *
      * @return Medewerker
      */
-    public function setWachtwoord($wachtwoord)
+    public function setPassword($password)
     {
-        $this->wachtwoord = $wachtwoord;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get wachtwoord
+     * Get password
      *
      * @return string
      */
-    public function getWachtwoord()
+    public function getpassword()
     {
-        return $this->wachtwoord;
+        return $this->password;
     }
 
     /**
