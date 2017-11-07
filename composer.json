@@ -6,6 +6,7 @@
         "nelmio/security-bundle": "^2.4",
         "sensio/framework-extra-bundle": "^5.0",
         "symfony-cmf/routing-bundle": "^2.0",
+        "symfony/debug-bundle": "^3.3",
         "symfony/dotenv": "^3.3",
         "symfony/framework-bundle": "^3.3",
         "symfony/monolog-bundle": "^3.1",

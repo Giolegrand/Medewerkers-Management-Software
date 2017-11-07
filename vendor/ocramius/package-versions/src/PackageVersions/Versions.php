@@ -44,6 +44,7 @@ final class Versions
   'symfony/config' => 'v3.3.10@4ab62407bff9cd97c410a7feaef04c375aaa5cfd',
   'symfony/console' => 'v3.3.10@116bc56e45a8e5572e51eb43ab58c769a352366c',
   'symfony/debug' => 'v3.3.10@eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd',
+  'symfony/debug-bundle' => 'v3.3.10@654033558fe379f36edb2afde2dae1152ba8f27b',
   'symfony/dependency-injection' => 'v3.3.10@8ebad929aee3ca185b05f55d9cc5521670821ad1',
   'symfony/doctrine-bridge' => 'v3.3.10@e14d2d703300e196d3f1212a3edfb704f7bc1fd0',
   'symfony/dotenv' => 'v3.3.10@ac86b6e484ae9224be290f3a0686858ba18d49d5',

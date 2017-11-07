@@ -4438,5 +4438,69 @@
             "MIT"
         ],
         "description": "A pack for the Symfony web profiler"
+    },
+    {
+        "name": "symfony/debug-bundle",
+        "version": "v3.3.10",
+        "version_normalized": "3.3.10.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/debug-bundle.git",
+            "reference": "654033558fe379f36edb2afde2dae1152ba8f27b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/debug-bundle/zipball/654033558fe379f36edb2afde2dae1152ba8f27b",
+            "reference": "654033558fe379f36edb2afde2dae1152ba8f27b",
+            "shasum": ""
+        },
+        "require": {
+            "ext-xml": "*",
+            "php": "^5.5.9|>=7.0.8",
+            "symfony/http-kernel": "~2.8|~3.0",
+            "symfony/twig-bridge": "~2.8|~3.0",
+            "symfony/var-dumper": "~2.8|~3.0"
+        },
+        "require-dev": {
+            "symfony/config": "~3.3",
+            "symfony/dependency-injection": "~3.3",
+            "symfony/web-profiler-bundle": "~2.8|~3.0"
+        },
+        "suggest": {
+            "symfony/config": "For service container configuration",
+            "symfony/dependency-injection": "For using as a service from the container"
+        },
+        "time": "2017-08-10T07:07:06+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Bundle\\DebugBundle\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony DebugBundle",
+        "homepage": "https://symfony.com"
     }
 ]
