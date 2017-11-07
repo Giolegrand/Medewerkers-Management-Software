@@ -25,7 +25,7 @@ class MainController extends Controller {
 	    $afdeling = $em->getRepository("App:Afdeling")->findOneByFrontName($subdomain);
 
 	    if($subdomain == $baseHost||null == $afdeling)
-	    	return $this->redirect("http://{$firstDomain->getFrontName()}.{$baseHost}");
+	    	return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
 	    
 

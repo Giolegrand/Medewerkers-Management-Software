@@ -16,7 +16,22 @@ class AuthenticationController extends Controller
      */
     public function loginAction(Request $request, AuthenticationUtils $authUtils)
     {
-        $afdelingen = $this->getDoctrine()->getRepository("App:Afdeling")->findByActive(true);
+        $currentHost = $request->getHttpHost();
+        $baseHost = getenv("base_host");
+        $subdomain = str_replace('.'.$baseHost, '', $currentHost);
+
+        $em = $this->getDoctrine()->getManager();
+
+        $firstDomain = $em->getRepository("App:Afdeling")->findByActive(true)[0];
+
+        $afdeling = $em->getRepository("App:Afdeling")->findOneByFrontName($subdomain);
+
+        if($subdomain == $baseHost||null == $afdeling)
+            return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
+
+        
+
+        $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
         // get the login error if there is one
         $error = $authUtils->getLastAuthenticationError();
 
@@ -26,6 +41,7 @@ class AuthenticationController extends Controller
             'last_email' => $lastEmail,
             'error' => $error,
             'afdelingen' => $afdelingen,
+            "host" => $baseHost,
         ));
     }
 
@@ -41,11 +57,30 @@ class AuthenticationController extends Controller
      */
     public function wachtwoordVergetenAction(UserPasswordEncoderInterface $encoder)
     {
+        $currentHost = $request->getHttpHost();
+        $baseHost = getenv("base_host");
+        $subdomain = str_replace('.'.$baseHost, '', $currentHost);
+
+        $em = $this->getDoctrine()->getManager();
+
+        $firstDomain = $em->getRepository("App:Afdeling")->findByActive(true)[0];
+
+        $afdeling = $em->getRepository("App:Afdeling")->findOneByFrontName($subdomain);
+
+        if($subdomain == $baseHost||null == $afdeling)
+            return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
+
+        
+
+        $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
+
         $user = new \App\Entity\Medewerker();
         $pass = $encoder->encodePassword($user, "test123");
 
         return $this->render('Authentication/wachtwoord_vergeten.html.twig', array(
             "pass" => $pass,
+            'afdelingen' => $afdelingen,
+            "host" => $baseHost,
         ));
     }
 
