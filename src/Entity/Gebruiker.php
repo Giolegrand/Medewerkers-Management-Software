@@ -46,7 +46,6 @@ class Gebruiker implements UserInterface
     /**
      * @var int
      *
-     * @ORM\Column(name="medewerkerId", type="integer")
      * @ORM\OneToOne(targetEntity="Medewerker")
      */
     private $medewerker;
@@ -78,4 +77,101 @@ class Gebruiker implements UserInterface
     }
 
     
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Gebruiker
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return Gebruiker
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    
+        return $this;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return Gebruiker
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+
+    /**
+     * Set medewerker
+     *
+     * @param \App\Entity\Medewerker $medewerker
+     *
+     * @return Gebruiker
+     */
+    public function setMedewerker(\App\Entity\Medewerker $medewerker = null)
+    {
+        $this->medewerker = $medewerker;
+    
+        return $this;
+    }
+
+    /**
+     * Get medewerker
+     *
+     * @return \App\Entity\Medewerker
+     */
+    public function getMedewerker()
+    {
+        return $this->medewerker;
+    }
 }
