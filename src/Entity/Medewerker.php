@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Medewerker
@@ -11,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="medewerkers")
  * @ORM\Entity()
  */
-class Medewerker implements UserInterface
+class Medewerker
 {
     /**
      * @var int
@@ -179,23 +178,9 @@ class Medewerker implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="foto", type="string", length=255)
      */
     private $foto;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
 
     /**
      * @var string
@@ -266,11 +251,6 @@ class Medewerker implements UserInterface
      * @ORM\Column(name="reanimatie", type="boolean")
      */
     private $reanimatie;
-
-    public function getUsername()
-    {
-        return $this->email;
-    }
 
     public function getSalt()
     {
