@@ -69,6 +69,7 @@
 	            {% endif %}
 	            <a href="{{ path("wwVergeten") }}">Forgot your email or password?</a>
 	            <a href="{{ path("homepage", { "afdeling": afdeling }) }}">Back to website</a>
+	            <input type="hidden" name="_target_path" value="{{ path('account') }}" />
 	        </form>
 	    </div>
 	    {% block javascripts %}

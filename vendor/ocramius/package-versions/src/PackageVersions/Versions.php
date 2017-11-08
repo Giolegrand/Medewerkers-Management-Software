@@ -81,7 +81,7 @@ final class Versions
   'zendframework/zend-code' => '3.3.0@6b1059db5b368db769e4392c6cb6cc139e56640d',
   'zendframework/zend-eventmanager' => '3.2.0@9d72db10ceb6e42fb92350c0cb54460da61bd79c',
   'symfony/flex' => 'v1.0.39@1f769098ee289320e1b86404bde02825cbae9488',
-  '__root__' => '1.0.0.0@',
+  '__root__' => 'dev-authentication@426f0bf7e04fb5f7a753ca541fd73c41b029e4eb',
 );
 
     private function __construct()
