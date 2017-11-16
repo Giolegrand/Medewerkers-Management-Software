@@ -31,6 +31,7 @@ security:
                 login_path: login
                 check_path: login
                 username_parameter: _email
+                require_previous_session: false
             logout:
                 path: /logout
                 target: /

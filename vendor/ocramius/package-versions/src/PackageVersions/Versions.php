@@ -75,7 +75,7 @@ final class Versions
   'symfony/stopwatch' => 'v4.0.0-BETA4@ac0e49150555c703fef6b696d8eaba1db7a3ca03',
   'symfony/var-dumper' => 'v4.0.0-BETA4@bbe2c65c7068cac878027fa6eb90676319edb449',
   'symfony/web-profiler-bundle' => 'v4.0.0-BETA4@f624f9bd6b9d8ff245652150be2b54bf3a3137f0',
-  '__root__' => 'dev-authentication@8c916baa7ebec80aaf73a740fe53b7eb68d8c15c',
+  '__root__' => '9999999-dev@bf3020b38b54a778db731d5b1b0e7e0f755313d0',
 );
 
     private function __construct()
