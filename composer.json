@@ -1,26 +1,25 @@
 {
     "type": "project",
     "license": "proprietary",
+    "minimum-stability": "beta",
     "require": {
-        "php": "^7.0.8",
-        "doctrine/doctrine-migrations-bundle": "^1.3",
-        "nelmio/security-bundle": "^2.4",
+        "php": "^7.1.3",
         "sensio/framework-extra-bundle": "^5.0",
-        "symfony-cmf/routing-bundle": "^2.0",
-        "symfony/debug-bundle": "^3.3",
-        "symfony/dotenv": "^3.3",
-        "symfony/framework-bundle": "^3.3",
-        "symfony/monolog-bundle": "^3.1",
+        "symfony/console": "^4.0",
+        "symfony/flex": "^1.0",
+        "symfony/framework-bundle": "^4.0",
+        "symfony/lts": "^4@dev",
         "symfony/orm-pack": "^1.0",
-        "symfony/profiler-pack": "^1.0",
-        "symfony/security-bundle": "^3.3",
+        "symfony/security-bundle": "^4.0@beta",
         "symfony/swiftmailer-bundle": "^3.1",
-        "symfony/twig-bundle": "^3.3",
-        "symfony/yaml": "^3.3",
+        "symfony/twig-bundle": "^4.0@beta",
+        "symfony/web-server-bundle": "^4.0@beta",
+        "symfony/yaml": "^4.0",
         "twig/extensions": "^1.5"
     },
     "require-dev": {
-        "symfony/flex": "^1.0"
+        "symfony/dotenv": "^4.0",
+        "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "preferred-install": {
@@ -51,9 +50,7 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*",
-        "symfony/twig-bundle": "<3.3",
-        "symfony/debug": "<3.3"
+        "symfony/symfony": "*"
     },
     "extra": {
         "symfony": {

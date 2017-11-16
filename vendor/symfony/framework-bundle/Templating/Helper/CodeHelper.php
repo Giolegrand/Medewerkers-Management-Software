@@ -28,7 +28,7 @@ class CodeHelper extends Helper
      * @param string                   $rootDir        The project root directory
      * @param string                   $charset        The charset
      */
-    public function __construct($fileLinkFormat, $rootDir, $charset)
+    public function __construct($fileLinkFormat, string $rootDir, string $charset)
     {
         $this->fileLinkFormat = $fileLinkFormat ?: ini_get('xdebug.file_link_format') ?: get_cfg_var('xdebug.file_link_format');
         $this->rootDir = str_replace('\\', '/', $rootDir).'/';
@@ -61,9 +61,9 @@ class CodeHelper extends Helper
             list($class, $method) = explode('::', $method, 2);
             $result = sprintf('%s::%s()', $this->abbrClass($class), $method);
         } elseif ('Closure' === $method) {
-            $result = sprintf('<abbr title="%s">%s</abbr>', $method, $method);
+            $result = sprintf('<abbr title="%s">%1$s</abbr>', $method);
         } else {
-            $result = sprintf('<abbr title="%s">%s</abbr>()', $method, $method);
+            $result = sprintf('<abbr title="%s">%1$s</abbr>()', $method);
         }
 
         return $result;

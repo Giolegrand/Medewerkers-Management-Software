@@ -20,33 +20,14 @@ use Symfony\Component\Form\Exception\RuntimeException;
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  *
- * @internal this class is meant for internal use only
+ * @internal
  */
 class IdReader
 {
-    /**
-     * @var ObjectManager
-     */
     private $om;
-
-    /**
-     * @var ClassMetadata
-     */
     private $classMetadata;
-
-    /**
-     * @var bool
-     */
     private $singleId;
-
-    /**
-     * @var bool
-     */
     private $intId;
-
-    /**
-     * @var string
-     */
     private $idField;
 
     /**
@@ -82,7 +63,7 @@ class IdReader
      * @return bool returns `true` if the class has a single-column ID and
      *              `false` otherwise
      */
-    public function isSingleId()
+    public function isSingleId(): bool
     {
         return $this->singleId;
     }
@@ -93,7 +74,7 @@ class IdReader
      * @return bool returns `true` if the class has a single-column integer ID
      *              and `false` otherwise
      */
-    public function isIntId()
+    public function isIntId(): bool
     {
         return $this->intId;
     }
@@ -138,7 +119,7 @@ class IdReader
      *
      * @return string The name of the ID field
      */
-    public function getIdField()
+    public function getIdField(): string
     {
         return $this->idField;
     }

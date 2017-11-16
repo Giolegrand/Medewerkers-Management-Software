@@ -30,10 +30,6 @@ abstract class FileLoader extends BaseFileLoader
     protected $isLoadingInstanceof = false;
     protected $instanceof = array();
 
-    /**
-     * @param ContainerBuilder     $container A ContainerBuilder instance
-     * @param FileLocatorInterface $locator   A FileLocator instance
-     */
     public function __construct(ContainerBuilder $container, FileLocatorInterface $locator)
     {
         $this->container = $container;
@@ -105,7 +101,7 @@ abstract class FileLoader extends BaseFileLoader
 
         $pattern = $parameterBag->unescapeValue($parameterBag->resolveValue($pattern));
         $classes = array();
-        $extRegexp = defined('HHVM_VERSION') ? '/\\.(?:php|hh)$/' : '/\\.php$/';
+        $extRegexp = '/\\.php$/';
         $prefixLen = null;
         foreach ($this->glob($pattern, true, $resource) as $path => $info) {
             if (null === $prefixLen) {

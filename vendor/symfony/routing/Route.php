@@ -19,50 +19,19 @@ namespace Symfony\Component\Routing;
  */
 class Route implements \Serializable
 {
-    /**
-     * @var string
-     */
     private $path = '/';
-
-    /**
-     * @var string
-     */
     private $host = '';
-
-    /**
-     * @var string[]
-     */
     private $schemes = array();
-
-    /**
-     * @var string[]
-     */
     private $methods = array();
-
-    /**
-     * @var array
-     */
     private $defaults = array();
-
-    /**
-     * @var array
-     */
     private $requirements = array();
-
-    /**
-     * @var array
-     */
     private $options = array();
+    private $condition = '';
 
     /**
      * @var null|CompiledRoute
      */
     private $compiled;
-
-    /**
-     * @var string
-     */
-    private $condition = '';
 
     /**
      * Available options:
@@ -79,7 +48,7 @@ class Route implements \Serializable
      * @param string|string[] $methods      A required HTTP method or an array of restricted methods
      * @param string          $condition    A condition that should evaluate to true for the route to match
      */
-    public function __construct($path, array $defaults = array(), array $requirements = array(), array $options = array(), $host = '', $schemes = array(), $methods = array(), $condition = '')
+    public function __construct(string $path, array $defaults = array(), array $requirements = array(), array $options = array(), ?string $host = '', $schemes = array(), $methods = array(), ?string $condition = '')
     {
         $this->setPath($path);
         $this->setDefaults($defaults);

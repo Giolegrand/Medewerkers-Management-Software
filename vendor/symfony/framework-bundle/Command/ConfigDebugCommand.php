@@ -17,22 +17,26 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Exception\LogicException;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * A console command for dumping available configuration reference.
  *
  * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ *
+ * @final since version 3.4
  */
 class ConfigDebugCommand extends AbstractConfigCommand
 {
+    protected static $defaultName = 'debug:config';
+
     /**
      * {@inheritdoc}
      */
     protected function configure()
     {
         $this
-            ->setName('debug:config')
             ->setDefinition(array(
                 new InputArgument('name', InputArgument::OPTIONAL, 'The bundle name or the extension alias'),
                 new InputArgument('path', InputArgument::OPTIONAL, 'The configuration option path'),
@@ -109,9 +113,9 @@ EOF
         $io->writeln(Yaml::dump($config, 10));
     }
 
-    private function compileContainer()
+    private function compileContainer(): ContainerBuilder
     {
-        $kernel = clone $this->getContainer()->get('kernel');
+        $kernel = clone $this->getApplication()->getKernel();
         $kernel->boot();
 
         $method = new \ReflectionMethod($kernel, 'buildContainer');
@@ -125,13 +129,11 @@ EOF
     /**
      * Iterate over configuration until the last step of the given path.
      *
-     * @param array $config A bundle configuration
-     *
      * @throws LogicException If the configuration does not exist
      *
      * @return mixed
      */
-    private function getConfigForPath(array $config, $path, $alias)
+    private function getConfigForPath(array $config, string $path, string $alias)
     {
         $steps = explode('.', $path);
 

@@ -47,21 +47,19 @@ class DebugHandlersListener implements EventSubscriberInterface
      * @param string|array         $fileLinkFormat   The format for links to source files
      * @param bool                 $scope            Enables/disables scoping mode
      */
-    public function __construct(callable $exceptionHandler = null, LoggerInterface $logger = null, $levels = E_ALL, $throwAt = E_ALL, $scream = true, $fileLinkFormat = null, $scope = true)
+    public function __construct(callable $exceptionHandler = null, LoggerInterface $logger = null, $levels = E_ALL, ?int $throwAt = E_ALL, bool $scream = true, $fileLinkFormat = null, bool $scope = true)
     {
         $this->exceptionHandler = $exceptionHandler;
         $this->logger = $logger;
         $this->levels = null === $levels ? E_ALL : $levels;
-        $this->throwAt = is_numeric($throwAt) ? (int) $throwAt : (null === $throwAt ? null : ($throwAt ? E_ALL : null));
-        $this->scream = (bool) $scream;
+        $this->throwAt = \is_int($throwAt) ? $throwAt : (null === $throwAt ? null : ($throwAt ? E_ALL : null));
+        $this->scream = $scream;
         $this->fileLinkFormat = $fileLinkFormat;
-        $this->scope = (bool) $scope;
+        $this->scope = $scope;
     }
 
     /**
      * Configures the error handler.
-     *
-     * @param Event|null $event The triggering event
      */
     public function configure(Event $event = null)
     {
@@ -88,7 +86,7 @@ class DebugHandlersListener implements EventSubscriberInterface
                         $handler->screamAt($levels);
                     }
                     if ($this->scope) {
-                        $handler->scopeAt($this->levels);
+                        $handler->scopeAt($levels & ~E_USER_DEPRECATED & ~E_DEPRECATED);
                     } else {
                         $handler->scopeAt(0, true);
                     }

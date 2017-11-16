@@ -27,9 +27,6 @@ class TemplateNameParser extends BaseTemplateNameParser
     protected $kernel;
     protected $cache = array();
 
-    /**
-     * @param KernelInterface $kernel A KernelInterface instance
-     */
     public function __construct(KernelInterface $kernel)
     {
         $this->kernel = $kernel;
@@ -53,7 +50,7 @@ class TemplateNameParser extends BaseTemplateNameParser
             throw new \RuntimeException(sprintf('Template name "%s" contains invalid characters.', $name));
         }
 
-        if ($this->isAbsolutePath($name) || !preg_match('/^(?:([^:]*):([^:]*):)?(.+)\.([^\.]+)\.([^\.]+)$/', $name, $matches) || 0 === strpos($name, '@')) {
+        if (!preg_match('/^(?:([^:]*):([^:]*):)?(.+)\.([^\.]+)\.([^\.]+)$/', $name, $matches) || 0 === strpos($name, '@')) {
             return parent::parse($name);
         }
 
@@ -68,16 +65,5 @@ class TemplateNameParser extends BaseTemplateNameParser
         }
 
         return $this->cache[$name] = $template;
-    }
-
-    private function isAbsolutePath($file)
-    {
-        $isAbsolute = (bool) preg_match('#^(?:/|[a-zA-Z]:)#', $file);
-
-        if ($isAbsolute) {
-            @trigger_error('Absolute template path support is deprecated since Symfony 3.1 and will be removed in 4.0.', E_USER_DEPRECATED);
-        }
-
-        return $isAbsolute;
     }
 }

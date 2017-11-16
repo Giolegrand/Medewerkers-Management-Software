@@ -26,15 +26,11 @@ abstract class AbstractDoctrineExtension extends Extension
 {
     /**
      * Used inside metadata driver method to simplify aggregation of data.
-     *
-     * @var array
      */
     protected $aliasMap = array();
 
     /**
      * Used inside metadata driver method to simplify aggregation of data.
-     *
-     * @var array
      */
     protected $drivers = array();
 
@@ -140,10 +136,6 @@ abstract class AbstractDoctrineExtension extends Extension
      * If this is a bundle controlled mapping all the missing information can be autodetected by this method.
      *
      * Returns false when autodetection failed, an array of the completed information otherwise.
-     *
-     * @param array            $bundleConfig
-     * @param \ReflectionClass $bundle
-     * @param ContainerBuilder $container    A ContainerBuilder instance
      *
      * @return array|false
      */
@@ -333,6 +325,7 @@ abstract class AbstractDoctrineExtension extends Extension
                 $memcachePort = !empty($cacheDriver['port']) || (isset($cacheDriver['port']) && 0 === $cacheDriver['port']) ? $cacheDriver['port'] : '%'.$this->getObjectManagerElementName('cache.memcache_port').'%';
                 $cacheDef = new Definition($memcacheClass);
                 $memcacheInstance = new Definition($memcacheInstanceClass);
+                $memcacheInstance->setPrivate(true);
                 $memcacheInstance->addMethodCall('connect', array(
                     $memcacheHost, $memcachePort,
                 ));
@@ -346,6 +339,7 @@ abstract class AbstractDoctrineExtension extends Extension
                 $memcachedPort = !empty($cacheDriver['port']) ? $cacheDriver['port'] : '%'.$this->getObjectManagerElementName('cache.memcached_port').'%';
                 $cacheDef = new Definition($memcachedClass);
                 $memcachedInstance = new Definition($memcachedInstanceClass);
+                $memcachedInstance->setPrivate(true);
                 $memcachedInstance->addMethodCall('addServer', array(
                     $memcachedHost, $memcachedPort,
                 ));
@@ -359,6 +353,7 @@ abstract class AbstractDoctrineExtension extends Extension
                 $redisPort = !empty($cacheDriver['port']) ? $cacheDriver['port'] : '%'.$this->getObjectManagerElementName('cache.redis_port').'%';
                 $cacheDef = new Definition($redisClass);
                 $redisInstance = new Definition($redisInstanceClass);
+                $redisInstance->setPrivate(true);
                 $redisInstance->addMethodCall('connect', array(
                     $redisHost, $redisPort,
                 ));
@@ -387,8 +382,7 @@ abstract class AbstractDoctrineExtension extends Extension
                 $seed = '_'.$container->getParameter('kernel.root_dir');
             }
             $seed .= '.'.$container->getParameter('kernel.name').'.'.$container->getParameter('kernel.environment').'.'.$container->getParameter('kernel.debug');
-            $hash = hash('sha256', $seed);
-            $namespace = 'sf_'.$this->getMappingResourceExtension().'_'.$objectManagerName.'_'.$hash;
+            $namespace = 'sf_'.$this->getMappingResourceExtension().'_'.$objectManagerName.'_'.ContainerBuilder::hash($seed);
 
             $cacheDriver['namespace'] = $namespace;
         }
@@ -404,9 +398,6 @@ abstract class AbstractDoctrineExtension extends Extension
      * Returns a modified version of $managerConfigs.
      *
      * The manager called $autoMappedManager will map all bundles that are not mapped by other managers.
-     *
-     * @param array $managerConfigs
-     * @param array $bundles
      *
      * @return array The modified version of $managerConfigs
      */
@@ -466,8 +457,6 @@ abstract class AbstractDoctrineExtension extends Extension
 
     /**
      * Search for a manager that is declared as 'auto_mapping' = true.
-     *
-     * @param array $managerConfigs
      *
      * @return null|string The name of the manager. If no one manager is found, returns null
      *
