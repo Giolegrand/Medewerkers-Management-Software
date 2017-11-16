@@ -12,7 +12,7 @@ class GebruikerController extends Controller {
 	 *
 	 * @Route("/account", name="account")
 	 */
-	public function accountAction(Request $r){
+	public function accountAction(Request $request){
 		$currentHost = $request->getHttpHost();
 	    $baseHost = getenv("base_host");
 	    $subdomain = str_replace('.'.$baseHost, '', $currentHost);
