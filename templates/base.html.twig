@@ -54,7 +54,7 @@
                         {% if afdeling is defined %}
                             <form type="post" action="{{ path("afdeling", { "frontName": afdeling.frontName|raw }) }}" enctype="multipart/form-data">
                         {% endif %}
-                        {% if content%}
+                        {% if content is defined %}
                             {{ content.waarde|raw|nl2br }}
                         {% endif %}
                         {% if afdeling is defined %}
