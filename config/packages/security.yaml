@@ -1,13 +1,43 @@
 security:
     # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\Gebruiker:
+            algorithm: bcrypt
     providers:
         in_memory: { memory: ~ }
+        db_provider:
+            entity:
+                class: App:Gebruiker
+                property: email
+    role_hierarchy:
+        ROLE_MEDEWERKER_MANAGEMENT: [ROLE_AFDELING_USERS_VIEW, ROLE_MEDEWERKER_ADD, ROLE_MEDEWERKER_EDIT, ROLE_MEDEWERKER_DELETE]
+        ROLE_AFDELING_MANAGEMENT: [ROLE_AFDELING_ADD, ROLE_AFDELING_DELETE, ROLE_AFDELING_VIEW]
+        ROLE_APPLICATION_MANAGEMENT: [ROLE_APPLICATION_SETTINGS_VIEW, ROLE_APPLICATION_SETTINGS_EDIT]
+        ROLE_MEDEWERKER: [USER_MANAGE_ACCOUNT]
+        ROLE_AFDELINGSHOOFD: [ROLE_MEDEWERKER, ROLE_MEDEWERKER_MANAGEMENT, ROLE_AFDELING_VIEW, ROLE_AFDELING_EDIT, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_VOORZITTER: 
+            - ROLE_AFDELINGSHOOFD
+            - ROLE_MEDEWERKER_MANAGEMENT
+            - ROLE_AFDELING_MANAGEMENT
+        ROLE_SUPERUSER: [ROLE_VOORZITTER, -ROLE_MEDEWERKER, -ROLE_ALLOWED_TO_SWITCH, -ROLE_AFDELING_MANAGEMENT, ROLE_AFDELING_VIEW, ROLE_APPLICATION_MANAGEMENT]
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            provider: db_provider
             anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+                username_parameter: _email
+            logout:
+                path: /logout
+                target: /
+            remember_me:
+                secret: '%env(APP_SECRET)%'
+                lifetime: 604800 #1 week in seconden
+                path: /
 
             # activate different ways to authenticate
 

@@ -44,6 +44,7 @@ final class Versions
   'symfony/config' => 'v3.3.10@4ab62407bff9cd97c410a7feaef04c375aaa5cfd',
   'symfony/console' => 'v3.3.10@116bc56e45a8e5572e51eb43ab58c769a352366c',
   'symfony/debug' => 'v3.3.10@eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd',
+  'symfony/debug-bundle' => 'v3.3.10@654033558fe379f36edb2afde2dae1152ba8f27b',
   'symfony/dependency-injection' => 'v3.3.10@8ebad929aee3ca185b05f55d9cc5521670821ad1',
   'symfony/doctrine-bridge' => 'v3.3.10@e14d2d703300e196d3f1212a3edfb704f7bc1fd0',
   'symfony/dotenv' => 'v3.3.10@ac86b6e484ae9224be290f3a0686858ba18d49d5',
@@ -62,6 +63,7 @@ final class Versions
   'symfony/polyfill-php56' => 'v1.6.0@265fc96795492430762c29be291a371494ba3a5b',
   'symfony/polyfill-php70' => 'v1.6.0@0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff',
   'symfony/polyfill-util' => 'v1.6.0@6e719200c8e540e0c0effeb31f96bdb344b94176',
+  'symfony/profiler-pack' => 'v1.0.2@ff9e32daca50ce4d98fcfeabdc27c9028cf6747b',
   'symfony/property-access' => 'v3.3.10@8d975b77d10ad8c24a7b88af1b38b333d2d4fa4b',
   'symfony/routing' => 'v3.3.10@2e26fa63da029dab49bf9377b3b4f60a8fecb009',
   'symfony/security' => 'v3.3.10@bc02243d4b09d42b636c89d7ff3c41edd5af0100',
@@ -70,6 +72,8 @@ final class Versions
   'symfony/swiftmailer-bundle' => 'v3.1.6@9728097df87e76e2db71fc41fd7d211c06daea3e',
   'symfony/twig-bridge' => 'v3.3.10@cc40b1ea0efd030d422c762328345883a0404de4',
   'symfony/twig-bundle' => 'v3.3.10@be0b47c949887dc1df3dfa695b7745f55405ab2a',
+  'symfony/var-dumper' => 'v3.3.10@03e3693a36701f1c581dd24a6d6eea2eba2113f6',
+  'symfony/web-profiler-bundle' => 'v3.3.10@a9b3af821ed0b09ee78c3746d00177ef3b9fb3f3',
   'symfony/yaml' => 'v3.3.10@8c7bf1e7d5d6b05a690b715729cb4cd0c0a99c46',
   'twig/extensions' => 'v1.5.1@d188c76168b853481cc75879ea045bf93d718e9c',
   'twig/twig' => 'v2.4.4@eddb97148ad779f27e670e1e3f19fb323aedafeb',
@@ -77,7 +81,7 @@ final class Versions
   'zendframework/zend-code' => '3.3.0@6b1059db5b368db769e4392c6cb6cc139e56640d',
   'zendframework/zend-eventmanager' => '3.2.0@9d72db10ceb6e42fb92350c0cb54460da61bd79c',
   'symfony/flex' => 'v1.0.39@1f769098ee289320e1b86404bde02825cbae9488',
-  '__root__' => '1.0.0.0@',
+  '__root__' => 'dev-authentication@426f0bf7e04fb5f7a753ca541fd73c41b029e4eb',
 );
 
     private function __construct()

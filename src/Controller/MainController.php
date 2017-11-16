@@ -10,7 +10,7 @@ use App\Entity\Afdeling;
 class MainController extends Controller {
 	/**
 	 * @Route("/", name="homepageNoSubDomain");
-     * @Route("/", name="homepage", host="{afdeling}.{domain}")
+     * @Route("/", name="homepage", host="{afdeling}.{domain}", defaults={"domain"="%base_host%"}, requirements={"domain"="%base_host%"})
      */
     public function indexAction(Request $request)
     {

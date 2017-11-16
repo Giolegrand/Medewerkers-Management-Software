@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Medewerker
@@ -11,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="medewerkers")
  * @ORM\Entity()
  */
-class Medewerker implements UserInterface
+class Medewerker
 {
     /**
      * @var int
@@ -179,23 +178,9 @@ class Medewerker implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="foto", type="string", length=255)
      */
     private $foto;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="wachtwoord", type="string", length=255)
-     */
-    private $wachtwoord;
 
     /**
      * @var string
@@ -267,11 +252,6 @@ class Medewerker implements UserInterface
      */
     private $reanimatie;
 
-    public function getUsername()
-    {
-        return $this->email;
-    }
-
     public function getSalt()
     {
         // you *may* need a real salt depending on your encoder
@@ -281,7 +261,7 @@ class Medewerker implements UserInterface
 
     public function getPassword()
     {
-        return $this->wachtwoord;
+        return $this->password;
     }
 
     public function getRoles()
@@ -880,27 +860,17 @@ class Medewerker implements UserInterface
     }
 
     /**
-     * Set wachtwoord
+     * Set password
      *
-     * @param string $wachtwoord
+     * @param string $password
      *
      * @return Medewerker
      */
-    public function setWachtwoord($wachtwoord)
+    public function setPassword($password)
     {
-        $this->wachtwoord = $wachtwoord;
+        $this->password = $password;
 
         return $this;
-    }
-
-    /**
-     * Get wachtwoord
-     *
-     * @return string
-     */
-    public function getWachtwoord()
-    {
-        return $this->wachtwoord;
     }
 
     /**

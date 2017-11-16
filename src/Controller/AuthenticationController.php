@@ -29,7 +29,7 @@ class AuthenticationController extends Controller
         if($subdomain == $baseHost||null == $afdeling)
             return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
-        
+        dump($this->container->get('session'));
 
         $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
         // get the login error if there is one
@@ -41,6 +41,7 @@ class AuthenticationController extends Controller
             'last_email' => $lastEmail,
             'error' => $error,
             'afdelingen' => $afdelingen,
+            "afdeling" => $subdomain,
             "host" => $baseHost,
         ));
     }
@@ -55,7 +56,7 @@ class AuthenticationController extends Controller
     /**
      * @Route("/forgotPassword", name="wwVergeten")
      */
-    public function wachtwoordVergetenAction(UserPasswordEncoderInterface $encoder)
+    public function wachtwoordVergetenAction(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $currentHost = $request->getHttpHost();
         $baseHost = getenv("base_host");
@@ -70,16 +71,12 @@ class AuthenticationController extends Controller
         if($subdomain == $baseHost||null == $afdeling)
             return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
-        
-
         $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
 
-        $user = new \App\Entity\Medewerker();
-        $pass = $encoder->encodePassword($user, "test123");
 
         return $this->render('Authentication/wachtwoord_vergeten.html.twig', array(
-            "pass" => $pass,
             'afdelingen' => $afdelingen,
+            "afdeling" => $subdomain,
             "host" => $baseHost,
         ));
     }
