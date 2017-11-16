@@ -34,7 +34,6 @@ class MainController extends Controller {
 
         return $this->render("base.html.twig", [
             'afdelingen' => $afdelingen,
-            'content' => $content,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
             "host" => $baseHost,
         ]);
