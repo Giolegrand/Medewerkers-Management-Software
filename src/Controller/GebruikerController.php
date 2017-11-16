@@ -30,7 +30,7 @@ class GebruikerController extends Controller {
 
         $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
 
-        return $this->render("Admin:account.html.twig", [
+        return $this->render("Admin/account.html.twig", [
             'afdelingen' => $afdelingen,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
             "host" => $baseHost,
