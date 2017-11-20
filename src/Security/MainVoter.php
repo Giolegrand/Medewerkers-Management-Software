@@ -14,8 +14,12 @@ class MainVoter extends VoterInterface {
     protected function hasRole($token, $targetRole){
     	$reachableRoles = $this->roleHierarchy->getReachableRoles($token->getRoles());
     	foreach($reachableRoles as $role){
-    		if($role->getRole() == $"")
+    		if(preg_match("/\-(.+)/", $role, $r)){
+				if($r[1] === $attribute)
+					return false;
+			}
     	}
+    	return true;
     }
 
 	protected function supports($attribute, $subject){
