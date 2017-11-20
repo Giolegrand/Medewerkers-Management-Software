@@ -3,16 +3,6 @@
 parameters:
     base_host: '%env(base_host)%'
 services:
-    Core__role_hierarchy:
-        alias: security.role_hierarchy
-        
-    Core_Voter:
-        class: App\Security\MainVoter
-        public: false
-        arguments:
-            - '@Core__role_hierarchy'
-        tags:
-            - { name: security.voter }
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services
