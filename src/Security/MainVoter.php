@@ -5,8 +5,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 
 class MainVoter extends VoterInterface {
-	protected roleHierarchy;
-
+	
 	public function __construct($roleHierarchy)
     {  
         $this->roleHierarchy = $roleHierarchy;
