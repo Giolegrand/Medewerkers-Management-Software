@@ -39,9 +39,9 @@ class Gebruiker implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="role", type="string", length=255)
+     * @ORM\Column(name="role", type="json")
      */
-    private $role;
+    private $roles = [];
 
     /**
      * @var int
@@ -65,11 +65,6 @@ class Gebruiker implements UserInterface
     public function getPassword()
     {
         return $this->password;
-    }
-
-    public function getRoles()
-    {
-        return explode(',', $this->role);
     }
 
     public function eraseCredentials()
@@ -133,9 +128,9 @@ class Gebruiker implements UserInterface
      *
      * @return Gebruiker
      */
-    public function setRole($role)
+    public function setRoles(array $roles)
     {
-        $this->role = $role;
+        $this->role = $roles;
     
         return $this;
     }
@@ -145,9 +140,9 @@ class Gebruiker implements UserInterface
      *
      * @return string
      */
-    public function getRole()
+    public function getRoles()
     {
-        return $this->role;
+        return $this->roles;
     }
 
 
