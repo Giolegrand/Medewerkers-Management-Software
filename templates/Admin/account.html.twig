@@ -17,6 +17,7 @@
             <li role="presentation"><a href="#">Instellingen </a></li>
         </ul>
     </li>
+    {% endif %}
     {% if is_granted('ROLE_APPLICATION_MANAGEMENT') %}  
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Software Instellingen<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
