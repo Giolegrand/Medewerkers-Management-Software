@@ -16,7 +16,8 @@
             <li role="presentation"><a href="#">Instellingen </a></li>
         </ul>
     </li>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Software Instellingen<span class="caret"></span></a>
+    {% if is_granted('ROLE_APPLICATION_MANAGEMENT') %}  
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Software Instellingen<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
             <li role="presentation"><a href="#">Afdelingen </a></li>
             <li role="presentation"><a href="#">Accounts </a></li>
@@ -24,6 +25,7 @@
             <li role="presentation"><a href="#">Over </a></li>
         </ul>
     </li>
+    {% endif %}
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Account <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
             <li role="presentation"><a href="#">Mijn Account</a></li>
