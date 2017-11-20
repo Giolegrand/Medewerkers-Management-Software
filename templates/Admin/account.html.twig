@@ -7,7 +7,8 @@
     <li role="presentation"><a href="#">Third Item</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Mijn Afdeling<span class="caret"></span></a>
+    {% if is_granted('ROLE_AFDELING_MANAGEMENT') %}  
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Mijn Afdeling<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
             <li role="presentation"><a href="#">Mijn Medewerkers</a></li>
             <li role="presentation"><a href="#">Mijn Taken</a></li>
@@ -17,7 +18,7 @@
         </ul>
     </li>
     {% if is_granted('ROLE_APPLICATION_MANAGEMENT') %}  
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Software Instellingen<span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Software Instellingen<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
             <li role="presentation"><a href="#">Afdelingen </a></li>
             <li role="presentation"><a href="#">Accounts </a></li>
