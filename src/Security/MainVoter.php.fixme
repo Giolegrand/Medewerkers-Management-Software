@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 class MainVoter extends RoleHierarchyVoter {
 	protected $roleHierarchy;
 	
-	public function __construct(RoleHierarchyInterface $roleHierarchy)
+	public function __construct(\Symfony\Component\Security\Core\Role\RoleHierarchyInterface $roleHierarchy)
     {  
         $this->roleHierarchy = $roleHierarchy;
     }
