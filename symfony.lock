@@ -298,5 +298,23 @@
             "version": "1.0",
             "ref": "4851df0afc426b8f07204379d21fca25b6df5d68"
         }
+    },
+    "symfony/expression-language": {
+        "version": "v4.0.0-beta4"
+    },
+    "monolog/monolog": {
+        "version": "1.23.0"
+    },
+    "symfony/monolog-bridge": {
+        "version": "v4.0.0-beta4"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.1",
+            "ref": "c24944bd87dacf0bb8fa218dc21e4a70fff56882"
+        }
     }
 }

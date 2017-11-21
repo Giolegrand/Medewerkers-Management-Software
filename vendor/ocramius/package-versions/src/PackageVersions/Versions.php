@@ -26,6 +26,7 @@ final class Versions
   'doctrine/orm' => 'v2.5.12@984535cadc609e9eef8c89414aa3568ee97aa79f',
   'egulias/email-validator' => '2.1.3@1bec00a10039b823cc94eef4eddd47dcd3b2ca04',
   'jdorn/sql-formatter' => 'v1.2.17@64990d96e0959dff8e059dfcdc1af130728d92bc',
+  'monolog/monolog' => '1.23.0@fd8c787753b3a2ad11bc60c063cff1358a32a3b4',
   'ocramius/package-versions' => '1.1.3@72b226d2957e9e6a9ed09aeaa29cabd840d1a3b7',
   'ocramius/proxy-manager' => '2.1.1@e18ac876b2e4819c76349de8f78ccc8ef1554cd7',
   'psr/cache' => '1.0.1@d11b50ad223250cf17b86e38383413f5a6764bf8',
@@ -41,6 +42,7 @@ final class Versions
   'symfony/dependency-injection' => 'v4.0.0-BETA4@55d1d0001b0594273bfa62e955b8af0deaf96564',
   'symfony/doctrine-bridge' => 'v4.0.0-BETA4@496f1ec1a5d288020f83aebcb70bf0571d92a517',
   'symfony/event-dispatcher' => 'v4.0.0-BETA4@6223fb2b68e7059e8d5843c0103999a84e7275cf',
+  'symfony/expression-language' => 'v4.0.0-BETA4@4cfb7a0fecff163427153b980c6f5daf7118a076',
   'symfony/filesystem' => 'v4.0.0-BETA4@1e8e2a3a34c9d1e85ecd3e71c77587417111fb95',
   'symfony/finder' => 'v4.0.0-BETA4@c9cdda4dc4a3182d8d6daeebce4a25fef078ea4c',
   'symfony/flex' => 'v1.0.41@f3ac6de242d0dd7f0a36abfcc413e6cee1442702',
@@ -49,6 +51,8 @@ final class Versions
   'symfony/http-kernel' => 'v4.0.0-BETA4@9a9e4d013f7a871a2695577350b077ac959e479c',
   'symfony/inflector' => 'v4.0.0-BETA4@8740990f67ec9f89bfa116d11bad2990dd510ece',
   'symfony/lts' => 'dev-master@396c5fca8d73d01186df37d7031321a3c0c2bf92',
+  'symfony/monolog-bridge' => 'v4.0.0-BETA4@55fead8897d6c17c4491b775c527421f10271bbb',
+  'symfony/monolog-bundle' => 'v3.1.2@2b41b8b6d2c6edb1a5494f02f8e4129be2a44784',
   'symfony/orm-pack' => 'v1.0.4@2544f5a96a90a236c23c91052e76c58367bba49c',
   'symfony/polyfill-mbstring' => 'v1.6.0@2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296',
   'symfony/process' => 'v4.0.0-BETA4@14ec41fb318afb39b11fd5d24b880f29b085600b',
@@ -71,7 +75,7 @@ final class Versions
   'symfony/stopwatch' => 'v4.0.0-BETA4@ac0e49150555c703fef6b696d8eaba1db7a3ca03',
   'symfony/var-dumper' => 'v4.0.0-BETA4@bbe2c65c7068cac878027fa6eb90676319edb449',
   'symfony/web-profiler-bundle' => 'v4.0.0-BETA4@f624f9bd6b9d8ff245652150be2b54bf3a3137f0',
-  '__root__' => 'dev-main-admin-template@9b40096f0ebcafecb325c0904edbaef772a86b55',
+  '__root__' => 'dev-main-admin-template@91c09569ac5b3a95db370f4bfb6adf56c561c614',
 );
 
     private function __construct()
