@@ -2531,155 +2531,6 @@
         ]
     },
     {
-        "name": "doctrine/dbal",
-        "version": "v2.6.2",
-        "version_normalized": "2.6.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/dbal.git",
-            "reference": "1a4ee83a5a709555f2c6f9057a3aacf892451c7e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/dbal/zipball/1a4ee83a5a709555f2c6f9057a3aacf892451c7e",
-            "reference": "1a4ee83a5a709555f2c6f9057a3aacf892451c7e",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/common": "^2.7.1",
-            "ext-pdo": "*",
-            "php": "^7.1"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.4.6",
-            "phpunit/phpunit-mock-objects": "!=3.2.4,!=3.2.5",
-            "symfony/console": "2.*||^3.0"
-        },
-        "suggest": {
-            "symfony/console": "For helpful console commands such as SQL execution and import of files."
-        },
-        "time": "2017-08-28T11:02:56+00:00",
-        "bin": [
-            "bin/doctrine-dbal"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.6.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\DBAL\\": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org"
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de"
-            },
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com"
-            },
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com"
-            }
-        ],
-        "description": "Database Abstraction Layer",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database",
-            "dbal",
-            "persistence",
-            "queryobject"
-        ]
-    },
-    {
-        "name": "doctrine/migrations",
-        "version": "v1.6.0",
-        "version_normalized": "1.6.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/migrations.git",
-            "reference": "ae765cee290a82975806fe49748acdd4d0580c6f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/migrations/zipball/ae765cee290a82975806fe49748acdd4d0580c6f",
-            "reference": "ae765cee290a82975806fe49748acdd4d0580c6f",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/dbal": "~2.6",
-            "ocramius/proxy-manager": "^1.0|^2.0",
-            "php": "^7.1",
-            "symfony/console": "~3.3|^4.0",
-            "symfony/yaml": "~3.3|^4.0"
-        },
-        "require-dev": {
-            "doctrine/coding-standard": "^1.0",
-            "doctrine/orm": "~2.5",
-            "jdorn/sql-formatter": "~1.1",
-            "mikey179/vfsstream": "^1.6",
-            "phpunit/phpunit": "~6.2",
-            "squizlabs/php_codesniffer": "^3.0"
-        },
-        "suggest": {
-            "jdorn/sql-formatter": "Allows to generate formatted SQL with the diff command."
-        },
-        "time": "2017-11-09T15:46:53+00:00",
-        "bin": [
-            "bin/doctrine-migrations"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "v1.6.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Doctrine\\DBAL\\Migrations\\": "lib/Doctrine/DBAL/Migrations"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL-2.1"
-        ],
-        "authors": [
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de"
-            },
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com"
-            },
-            {
-                "name": "Michael Simonson",
-                "email": "contact@mikesimonson.com"
-            }
-        ],
-        "description": "Database Schema migrations using Doctrine DBAL",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database",
-            "migrations"
-        ]
-    },
-    {
         "name": "symfony/doctrine-bridge",
         "version": "v4.0.0-BETA4",
         "version_normalized": "4.0.0.0-beta4",
@@ -3378,285 +3229,6 @@
         ]
     },
     {
-        "name": "monolog/monolog",
-        "version": "1.23.0",
-        "version_normalized": "1.23.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
-            "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0",
-            "psr/log": "~1.0"
-        },
-        "provide": {
-            "psr/log-implementation": "1.0.0"
-        },
-        "require-dev": {
-            "aws/aws-sdk-php": "^2.4.9 || ^3.0",
-            "doctrine/couchdb": "~1.0@dev",
-            "graylog2/gelf-php": "~1.0",
-            "jakub-onderka/php-parallel-lint": "0.9",
-            "php-amqplib/php-amqplib": "~2.4",
-            "php-console/php-console": "^3.1.3",
-            "phpunit/phpunit": "~4.5",
-            "phpunit/phpunit-mock-objects": "2.3.0",
-            "ruflin/elastica": ">=0.90 <3.0",
-            "sentry/sentry": "^0.13",
-            "swiftmailer/swiftmailer": "^5.3|^6.0"
-        },
-        "suggest": {
-            "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
-            "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
-            "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-            "ext-mongo": "Allow sending log messages to a MongoDB server",
-            "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-            "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
-            "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
-            "php-console/php-console": "Allow sending log messages to Google Chrome",
-            "rollbar/rollbar": "Allow sending log messages to Rollbar",
-            "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
-            "sentry/sentry": "Allow sending log messages to a Sentry server"
-        },
-        "time": "2017-06-19T01:22:40+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Monolog\\": "src/Monolog"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jordi Boggiano",
-                "email": "j.boggiano@seld.be",
-                "homepage": "http://seld.be"
-            }
-        ],
-        "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-        "homepage": "http://github.com/Seldaek/monolog",
-        "keywords": [
-            "log",
-            "logging",
-            "psr-3"
-        ]
-    },
-    {
-        "name": "symfony/monolog-bridge",
-        "version": "v4.0.0-BETA4",
-        "version_normalized": "4.0.0.0-beta4",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/monolog-bridge.git",
-            "reference": "55fead8897d6c17c4491b775c527421f10271bbb"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/monolog-bridge/zipball/55fead8897d6c17c4491b775c527421f10271bbb",
-            "reference": "55fead8897d6c17c4491b775c527421f10271bbb",
-            "shasum": ""
-        },
-        "require": {
-            "monolog/monolog": "~1.19",
-            "php": "^7.1.3",
-            "symfony/http-kernel": "~3.4|~4.0"
-        },
-        "conflict": {
-            "symfony/http-foundation": "<3.4"
-        },
-        "require-dev": {
-            "symfony/console": "~3.4|~4.0",
-            "symfony/event-dispatcher": "~3.4|~4.0",
-            "symfony/security-core": "~3.4|~4.0",
-            "symfony/var-dumper": "~3.4|~4.0"
-        },
-        "suggest": {
-            "symfony/console": "For the possibility to show log messages in console commands depending on verbosity settings. You need version ~2.3 of the console for it.",
-            "symfony/event-dispatcher": "Needed when using log messages in console commands.",
-            "symfony/http-kernel": "For using the debugging handlers together with the response life cycle of the HTTP kernel."
-        },
-        "time": "2017-11-07T14:45:01+00:00",
-        "type": "symfony-bridge",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Bridge\\Monolog\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Monolog Bridge",
-        "homepage": "https://symfony.com"
-    },
-    {
-        "name": "symfony/monolog-bundle",
-        "version": "v3.1.2",
-        "version_normalized": "3.1.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/monolog-bundle.git",
-            "reference": "2b41b8b6d2c6edb1a5494f02f8e4129be2a44784"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/2b41b8b6d2c6edb1a5494f02f8e4129be2a44784",
-            "reference": "2b41b8b6d2c6edb1a5494f02f8e4129be2a44784",
-            "shasum": ""
-        },
-        "require": {
-            "monolog/monolog": "~1.22",
-            "php": ">=5.3.2",
-            "symfony/config": "~2.7|~3.0|~4.0",
-            "symfony/dependency-injection": "~2.7|~3.0|~4.0",
-            "symfony/http-kernel": "~2.7|~3.0|~4.0",
-            "symfony/monolog-bridge": "~2.7|~3.0|~4.0"
-        },
-        "require-dev": {
-            "symfony/console": "~2.3|~3.0|~4.0",
-            "symfony/phpunit-bridge": "^3.3|^4.0",
-            "symfony/yaml": "~2.3|~3.0|~4.0"
-        },
-        "time": "2017-11-06T16:02:17+00:00",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Bundle\\MonologBundle\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Symfony MonologBundle",
-        "homepage": "http://symfony.com",
-        "keywords": [
-            "log",
-            "logging"
-        ]
-    },
-    {
-        "name": "symfony/debug-bundle",
-        "version": "v4.0.0-BETA4",
-        "version_normalized": "4.0.0.0-beta4",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/debug-bundle.git",
-            "reference": "ed94077831a0ba94f589335afab79f28ef629b15"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/debug-bundle/zipball/ed94077831a0ba94f589335afab79f28ef629b15",
-            "reference": "ed94077831a0ba94f589335afab79f28ef629b15",
-            "shasum": ""
-        },
-        "require": {
-            "ext-xml": "*",
-            "php": "^7.1.3",
-            "symfony/http-kernel": "~3.4|~4.0",
-            "symfony/twig-bridge": "~3.4|~4.0",
-            "symfony/var-dumper": "~3.4|~4.0"
-        },
-        "conflict": {
-            "symfony/dependency-injection": "<3.4"
-        },
-        "require-dev": {
-            "symfony/config": "~3.4|~4.0",
-            "symfony/dependency-injection": "~3.4|~4.0",
-            "symfony/web-profiler-bundle": "~3.4|~4.0"
-        },
-        "suggest": {
-            "symfony/config": "For service container configuration",
-            "symfony/dependency-injection": "For using as a service from the container"
-        },
-        "time": "2017-09-13T08:49:19+00:00",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Bundle\\DebugBundle\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony DebugBundle",
-        "homepage": "https://symfony.com"
-    },
-    {
         "name": "symfony/inflector",
         "version": "v4.0.0-BETA4",
         "version_normalized": "4.0.0.0-beta4",
@@ -4181,6 +3753,155 @@
         "keywords": [
             "i18n",
             "text"
+        ]
+    },
+    {
+        "name": "doctrine/dbal",
+        "version": "v2.6.3",
+        "version_normalized": "2.6.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/dbal.git",
+            "reference": "e3eed9b1facbb0ced3a0995244843a189e7d1b13"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/dbal/zipball/e3eed9b1facbb0ced3a0995244843a189e7d1b13",
+            "reference": "e3eed9b1facbb0ced3a0995244843a189e7d1b13",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/common": "^2.7.1",
+            "ext-pdo": "*",
+            "php": "^7.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.4.6",
+            "phpunit/phpunit-mock-objects": "!=3.2.4,!=3.2.5",
+            "symfony/console": "2.*||^3.0"
+        },
+        "suggest": {
+            "symfony/console": "For helpful console commands such as SQL execution and import of files."
+        },
+        "time": "2017-11-19T13:38:54+00:00",
+        "bin": [
+            "bin/doctrine-dbal"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.6.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\DBAL\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            }
+        ],
+        "description": "Database Abstraction Layer",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "dbal",
+            "persistence",
+            "queryobject"
+        ]
+    },
+    {
+        "name": "doctrine/migrations",
+        "version": "v1.6.1",
+        "version_normalized": "1.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/migrations.git",
+            "reference": "5d5ff249e67a4eebe031b8ec419e8f215dd6562e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/migrations/zipball/5d5ff249e67a4eebe031b8ec419e8f215dd6562e",
+            "reference": "5d5ff249e67a4eebe031b8ec419e8f215dd6562e",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/dbal": "~2.6",
+            "ocramius/proxy-manager": "^1.0|^2.0",
+            "php": "^7.1",
+            "symfony/console": "~3.3|^4.0",
+            "symfony/yaml": "~3.3|^4.0"
+        },
+        "require-dev": {
+            "doctrine/coding-standard": "^1.0",
+            "doctrine/orm": "~2.5",
+            "jdorn/sql-formatter": "~1.1",
+            "mikey179/vfsstream": "^1.6",
+            "phpunit/phpunit": "~6.2",
+            "squizlabs/php_codesniffer": "^3.0"
+        },
+        "suggest": {
+            "jdorn/sql-formatter": "Allows to generate formatted SQL with the diff command."
+        },
+        "time": "2017-11-18T12:48:27+00:00",
+        "bin": [
+            "bin/doctrine-migrations"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "v1.6.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Doctrine\\DBAL\\Migrations\\": "lib/Doctrine/DBAL/Migrations"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1"
+        ],
+        "authors": [
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            },
+            {
+                "name": "Michael Simonson",
+                "email": "contact@mikesimonson.com"
+            }
+        ],
+        "description": "Database Schema migrations using Doctrine DBAL",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "migrations"
         ]
     }
 ]

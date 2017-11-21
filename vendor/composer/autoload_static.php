@@ -53,11 +53,8 @@ class ComposerStaticInit8cf7eb78954cab49004e90846a92ec12
             'Symfony\\Bundle\\TwigBundle\\' => 26,
             'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
             'Symfony\\Bundle\\SecurityBundle\\' => 30,
-            'Symfony\\Bundle\\MonologBundle\\' => 29,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
-            'Symfony\\Bundle\\DebugBundle\\' => 27,
             'Symfony\\Bridge\\Twig\\' => 20,
-            'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
@@ -68,10 +65,6 @@ class ComposerStaticInit8cf7eb78954cab49004e90846a92ec12
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PackageVersions\\' => 16,
-        ),
-        'M' => 
-        array (
-            'Monolog\\' => 8,
         ),
         'E' => 
         array (
@@ -221,25 +214,13 @@ class ComposerStaticInit8cf7eb78954cab49004e90846a92ec12
         array (
             0 => __DIR__ . '/..' . '/symfony/security-bundle',
         ),
-        'Symfony\\Bundle\\MonologBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/monolog-bundle',
-        ),
         'Symfony\\Bundle\\FrameworkBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/framework-bundle',
         ),
-        'Symfony\\Bundle\\DebugBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/debug-bundle',
-        ),
         'Symfony\\Bridge\\Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/twig-bridge',
-        ),
-        'Symfony\\Bridge\\Monolog\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/monolog-bridge',
         ),
         'Symfony\\Bridge\\Doctrine\\' => 
         array (
@@ -268,10 +249,6 @@ class ComposerStaticInit8cf7eb78954cab49004e90846a92ec12
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
-        ),
-        'Monolog\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
