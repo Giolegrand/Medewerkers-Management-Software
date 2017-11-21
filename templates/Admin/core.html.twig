@@ -1,1 +1,81 @@
-{% extends "base.html.twig" %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Texel Medewerkers {% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+            <link rel="stylesheet" href="assets/vendor/bootswatch/spacelab/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" href="assets/vendor/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+            <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+            <link rel="stylesheet" href="assets/vendor/roundtexel/css/extender.css">
+            {% block extraStylesheets %}{% endblock %}
+        {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" style="margin:0;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand pull-right" href="#"> <img src="https://registrations.roundtexel.com/assets/images/ROTLogo.png" height="26px"></a>
+                <button class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#navcol-1" style="margin-right:0;margin-left:15px;"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="active" role="presentation"><a href="#">Round Texel Medewerkers</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Giovanni Le Grand<img src="https://secure.gravatar.com/avatar/cacf063908b436afc988b37504d6cecf?s=26&d=mm&r=g" height="20px" style="margin-left:10px;">  </a>
+                        <ul
+                        class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="{{path("account")}}">Mijn Account</a></li>
+                            <li role="presentation"><a href="{{path("personalInformation")}}">Mijn Gegevens</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="{{path("messages")}}">Mijn Berichten</a></li>
+                            <li role="presentation"><a href="{{path("jobsPersonal")}}">Mijn Taken</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="{{ path("logout") }}">Uitloggen </a></li>
+	                	</ul>
+	                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 visible-md-block visible-lg-block hidden-xs hidden-sm">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{{path("registrations")}}">Aanmeldingen </a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Mijn Afdeling <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="{{ path("employees")}}">Mijn Medewerkers</a></li>
+                            <li role="presentation"><a href="{{ path("jobsDepartment") }}">Mijn Taken</a></li>
+                            <li role="presentation"><a href="{{ path("rightsDepartment") }}">Mijn Rechten</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="{{ path("settingsDepartment") }}">Instellingen </a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Software Instellingen<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="{{ path("departments") }}">Afdelingen </a></li>
+                            <li role="presentation"><a href="{{ path("accounts") }}">Accounts </a></li>
+                            <li role="presentation"><a href="{{ path("settings") }}">Software </a></li>
+                            <li role="presentation"><a href="#">Over </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+            	{% block content %}
+            	{% endblock %}
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
