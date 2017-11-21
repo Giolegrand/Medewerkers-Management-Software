@@ -74,8 +74,13 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    {% block javascripts %}
+        <script src="assets/vendor/jquery/jquery.min.js"></script>
+        <script src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+        <script src="assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        {% block customscripts %}{% endblock %}
+    {% endblock %}
 </body>
 
 </html>
