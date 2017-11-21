@@ -48,6 +48,7 @@ security:
         main:
             provider: db_provider
             anonymous: ~
+            stateless: false
             form_login:
                 login_path: login
                 check_path: login

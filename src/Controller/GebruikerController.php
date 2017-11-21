@@ -5,12 +5,14 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use App\Entity\Afdeling;
 
 class GebruikerController extends Controller {
 	/**
 	 *
 	 * @Route("/account", name="account")
+	 * @Security("has_role('ROLE_MEDEWERKER')")
 	 */
 	public function accountAction(Request $request){
 		$currentHost = $request->getHttpHost();
