@@ -18,6 +18,11 @@ html{min-width:100%;height:100%}body{min-height:100%;}.login-dark{height:100vh;b
     height: auto;
 }
 
+#flex > .row {
+    flex: 1;
+    display: flex;
+}
+
 .sidebar-nav {
     background: #212529;
     padding: 0;
