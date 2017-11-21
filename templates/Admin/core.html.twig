@@ -48,29 +48,27 @@
     <div class="container-fluid" id="flex">
         <div class="row">
             <aside class="col-md-2 sidebar-nav">
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="metismenu">
-                        <li><a href="{# path("registrations") #}">Aanmeldingen </a></li>
-                        <li>
-                        	<a aria-expanded="false" href="#" class="has-arrow">Mijn Afdeling</a>
-                            <ul aria-expanded="false">
-                                <li role="presentation"><a href="{# path("employees")#}">Mijn Medewerkers</a></li>
-                                <li role="presentation"><a href="{# path("jobsDepartment") #}">Mijn Taken</a></li>
-                                <li role="presentation"><a href="{# path("rightsDepartment") #}">Mijn Rechten</a></li>
-                                <li class="divider" role="presentation"></li>
-                                <li role="presentation"><a href="{# path("settingsDepartment") #}">Instellingen </a></li>
-                            </ul>
-                        </li>
-                        <li><a aria-expanded="false" href="#" class="has-arrow">Software Instellingen</a>
-                            <ul aria-expanded="false">
-                                <li role="presentation"><a href="{# path("departments") #}">Afdelingen </a></li>
-                                <li role="presentation"><a href="{# path("accounts") #}">Accounts </a></li>
-                                <li role="presentation"><a href="{# path("settings") #}">Software </a></li>
-                                <li role="presentation"><a href="#">Over </a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="metismenu">
+                    <li><a href="{# path("registrations") #}">Aanmeldingen </a></li>
+                    <li>
+                    	<a aria-expanded="false" href="#" class="has-arrow">Mijn Afdeling</a>
+                        <ul aria-expanded="false">
+                            <li role="presentation"><a href="{# path("employees")#}">Mijn Medewerkers</a></li>
+                            <li role="presentation"><a href="{# path("jobsDepartment") #}">Mijn Taken</a></li>
+                            <li role="presentation"><a href="{# path("rightsDepartment") #}">Mijn Rechten</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="{# path("settingsDepartment") #}">Instellingen </a></li>
+                        </ul>
+                    </li>
+                    <li><a aria-expanded="false" href="#" class="has-arrow">Software Instellingen</a>
+                        <ul aria-expanded="false">
+                            <li role="presentation"><a href="{# path("departments") #}">Afdelingen </a></li>
+                            <li role="presentation"><a href="{# path("accounts") #}">Accounts </a></li>
+                            <li role="presentation"><a href="{# path("settings") #}">Software </a></li>
+                            <li role="presentation"><a href="#">Over </a></li>
+                        </ul>
+                    </li>
+                </ul>
             </aside>
             <main class="col-md-10">
             	{% block content %}
