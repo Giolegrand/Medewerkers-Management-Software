@@ -35,11 +35,12 @@ security:
             - ROLE_MEDEWERKER_MANAGEMENT
             - ROLE_AFDELING_MANAGEMENT
         ROLE_SUPERUSER:
-            - ROLE_VOORZITTER
-            - -ROLE_MEDEWERKER
-            - -ROLE_ALLOWED_TO_SWITCH
-            - -ROLE_AFDELING_MANAGEMENT
-            - ROLE_AFDELING_VIEW
+            - ROLE_MEDEWERKER_MANAGEMENT
+            - ROLE_MEDEWERKER
+            - ROLE_ADDELINGEN_VIEW
+            - ROLE_AFDELINGEN_EDIT
+            - ROLE_AFDELINGEN_DELETE
+            - ROLE_AFDELINGEN_ADD
             - ROLE_APPLICATION_MANAGEMENT
     firewalls:
         dev:
