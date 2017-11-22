@@ -50,7 +50,7 @@
             <aside class="col-md-2 visible-md-block visible-lg-block hidden-xs hidden-sm sidebar-nav">
                 <ul class="metismenu">
                     <li><a href="{# path("registrations") #}">Aanmeldingen </a></li>
-                    {% if is_granted("ROLE_AFDELING_MANAGEMENT") and is_granted("-ROLE_AFDELING_MANAGEMENT") == false %}
+                    {% if is_granted("ROLE_AFDELING_MANAGEMENT") and not is_granted("-ROLE_AFDELING_MANAGEMENT") %}
                     <li>
                     	<a aria-expanded="false" href="#" class="has-arrow">Mijn Afdeling</a>
                         <ul aria-expanded="false">
