@@ -28,21 +28,21 @@
                 <ul class="nav navbar-nav">
                     <li class="active" role="presentation"><a href="#">Round Texel Medewerkers</a></li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Giovanni Le Grand<img src="https://secure.gravatar.com/avatar/cacf063908b436afc988b37504d6cecf?s=26&d=mm&r=g" height="20px" style="margin-left:10px;">  </a>
+                        <ul
+                        class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="{{path("account")}}">Mijn Account</a></li>
+                            <li role="presentation"><a href="{#path("personalInformation")#}">Mijn Gegevens</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="{#path("messages")#}">Mijn Berichten</a></li>
+                            <li role="presentation"><a href="{#path("jobsPersonal")#}">Mijn Taken</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="{{ path("logout") }}">Uitloggen </a></li>
+	                	</ul>
+	                </li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Giovanni Le Grand<img src="https://secure.gravatar.com/avatar/cacf063908b436afc988b37504d6cecf?s=26&d=mm&r=g" height="20px" style="margin-left:10px;">  </a>
-                    <ul
-                    class="dropdown-menu" role="menu">
-                        <li role="presentation"><a href="{{path("account")}}">Mijn Account</a></li>
-                        <li role="presentation"><a href="{#path("personalInformation")#}">Mijn Gegevens</a></li>
-                        <li class="divider" role="presentation"></li>
-                        <li role="presentation"><a href="{#path("messages")#}">Mijn Berichten</a></li>
-                        <li role="presentation"><a href="{#path("jobsPersonal")#}">Mijn Taken</a></li>
-                        <li class="divider" role="presentation"></li>
-                        <li role="presentation"><a href="{{ path("logout") }}">Uitloggen </a></li>
-                	</ul>
-                </li>
-            </ul>
         </div>
     </nav>
     <div class="container-fluid" id="flex">
