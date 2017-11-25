@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Medewerker
+ * employee
  *
- * @ORM\Table(name="gebruikers")
+ * @ORM\Table(name="users")
  * @ORM\Entity()
  */
-class Gebruiker implements UserInterface
+class User implements UserInterface
 {
     /**
      * @var int
@@ -46,9 +46,9 @@ class Gebruiker implements UserInterface
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="Medewerker")
+     * @ORM\OneToOne(targetEntity="Employee")
      */
-    private $medewerker;
+    private $employee;
 
     public function getUsername()
     {
@@ -147,26 +147,26 @@ class Gebruiker implements UserInterface
 
 
     /**
-     * Set medewerker
+     * Set employee
      *
-     * @param \App\Entity\Medewerker $medewerker
+     * @param \App\Entity\employee $employee
      *
      * @return Gebruiker
      */
-    public function setMedewerker(\App\Entity\Medewerker $medewerker = null)
+    public function setEmployee(\App\Entity\Employee $employee = null)
     {
-        $this->medewerker = $medewerker;
+        $this->employee = $employee;
     
         return $this;
     }
 
     /**
-     * Get medewerker
+     * Get employee
      *
-     * @return \App\Entity\Medewerker
+     * @return \App\Entity\employee
      */
-    public function getMedewerker()
+    public function getEmployee()
     {
-        return $this->medewerker;
+        return $this->employee;
     }
 }
