@@ -5,7 +5,7 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Afdeling;
+use App\Entity\Department;
 
 class MainController extends Controller {
 	/**
@@ -20,16 +20,16 @@ class MainController extends Controller {
 
 	    $em = $this->getDoctrine()->getManager();
 
-	    $firstDomain = $em->getRepository("App:Afdeling")->findByActive(true)[0];
+	    $firstDomain = $em->getRepository("App:Department")->findByActive(true)[0];
 
-	    $afdeling = $em->getRepository("App:Afdeling")->findOneByFrontName($subdomain);
+	    $afdeling = $em->getRepository("App:Department")->findOneByFrontName($subdomain);
 
 	    if($subdomain == $baseHost||null == $afdeling)
 	    	return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
 	    
 
-        $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
+        $afdelingen = $em->getRepository("App:Department")->findByActive(true);
         $content = $em->getRepository("App:Variable")->findOneByNaam("indexPage");
 
         return $this->render("base.html.twig", [

@@ -22,16 +22,16 @@ class AuthenticationController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $firstDomain = $em->getRepository("App:Afdeling")->findByActive(true)[0];
+        $firstDomain = $em->getRepository("App:Department")->findByActive(true)[0];
 
-        $afdeling = $em->getRepository("App:Afdeling")->findOneByFrontName($subdomain);
+        $afdeling = $em->getRepository("App:Department")->findOneByFrontName($subdomain);
 
         if($subdomain == $baseHost||null == $afdeling)
             return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
         //dump($this->container->get('session'));
 
-        $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
+        $afdelingen = $em->getRepository("App:Department")->findByActive(true);
         // get the login error if there is one
         $error = $authUtils->getLastAuthenticationError();
 
@@ -64,14 +64,14 @@ class AuthenticationController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $firstDomain = $em->getRepository("App:Afdeling")->findByActive(true)[0];
+        $firstDomain = $em->getRepository("App:Department")->findByActive(true)[0];
 
-        $afdeling = $em->getRepository("App:Afdeling")->findOneByFrontName($subdomain);
+        $afdeling = $em->getRepository("App:Department")->findOneByFrontName($subdomain);
 
         if($subdomain == $baseHost||null == $afdeling)
             return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
-        $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
+        $afdelingen = $em->getRepository("App:Department")->findByActive(true);
 
 
         return $this->render('Authentication/wachtwoord_vergeten.html.twig', array(
