@@ -39,6 +39,7 @@ final class Versions
   'symfony/config' => 'v4.0.0-BETA4@5737a596f9aecded1dc60ea4096a741f2862bf21',
   'symfony/console' => 'v4.0.0-BETA4@481dcfc9c0be0ed91be456ab72960ee8a07168e2',
   'symfony/debug' => 'v4.0.0-BETA4@92697a71cd55c5852d0f19cd80e7fb6d1eb12b88',
+  'symfony/debug-bundle' => 'v4.0.0-RC2@81eac72b030c08c9dcd85f60e873fc356f21f436',
   'symfony/dependency-injection' => 'v4.0.0-BETA4@55d1d0001b0594273bfa62e955b8af0deaf96564',
   'symfony/doctrine-bridge' => 'v4.0.0-BETA4@496f1ec1a5d288020f83aebcb70bf0571d92a517',
   'symfony/event-dispatcher' => 'v4.0.0-BETA4@6223fb2b68e7059e8d5843c0103999a84e7275cf',
@@ -75,7 +76,7 @@ final class Versions
   'symfony/profiler-pack' => 'v1.0.2@ff9e32daca50ce4d98fcfeabdc27c9028cf6747b',
   'symfony/stopwatch' => 'v4.0.0-BETA4@ac0e49150555c703fef6b696d8eaba1db7a3ca03',
   'symfony/web-profiler-bundle' => 'v4.0.0-BETA4@f624f9bd6b9d8ff245652150be2b54bf3a3137f0',
-  '__root__' => 'dev-main-admin-template@eb1f4d0bff04d7fc7aac641c1bb38407b5832132',
+  '__root__' => 'dev-main-admin-template@230eb11dcf0fc280eaccd2f900dff742ccc8f648',
 );
 
     private function __construct()
