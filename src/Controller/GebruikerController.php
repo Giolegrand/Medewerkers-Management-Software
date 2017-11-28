@@ -6,7 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use App\Entity\Afdeling;
+use App\Entity\Department;
 
 class GebruikerController extends Controller {
 	/**
@@ -21,16 +21,16 @@ class GebruikerController extends Controller {
 
 	    $em = $this->getDoctrine()->getManager();
 
-	    $firstDomain = $em->getRepository("App:Afdeling")->findByActive(true)[0];
+	    $firstDomain = $em->getRepository("App:Department")->findByActive(true)[0];
 
-	    $afdeling = $em->getRepository("App:Afdeling")->findOneByFrontName($subdomain);
+	    $afdeling = $em->getRepository("App:Department")->findOneByFrontName($subdomain);
 
 	    if($subdomain == $baseHost||null == $afdeling)
 	    	return $this->redirect("https://{$firstDomain->getFrontName()}.{$baseHost}");
 
 	    
 
-        $afdelingen = $em->getRepository("App:Afdeling")->findByActive(true);
+        $afdelingen = $em->getRepository("App:Department")->findByActive(true);
 
         return $this->render("Admin/account.html.twig", [
             'afdelingen' => $afdelingen,
