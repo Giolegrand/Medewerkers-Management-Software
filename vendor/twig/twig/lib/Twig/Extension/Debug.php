@@ -37,17 +37,29 @@ function twig_var_dump(Twig_Environment $env, $context, ...$vars)
 
     #ob_start();
 
-    if (!$vars) {
+    /*if (!$vars) {
         $vars = array();
         foreach ($context as $key => $value) {
             if (!$value instanceof Twig_Template) {
                 $vars[$key] = $value;
             }
         }
-        dump($vars);
-        #var_dump($vars);
+
+        var_dump($vars);
     } else {
-        #var_dump(...$vars);
+        var_dump(...$vars);
+    }*/
+
+    if (2 === $count) {
+        $vars = array();
+        foreach ($context as $key => $value) {
+            if (!$value instanceof Twig_Template) {
+                $vars[$key] = $value;
+            }
+        }
+
+        dump($vars);
+    } else {
         for ($i = 2; $i < $count; $i++) {
             dump(func_get_arg($i));
         }
