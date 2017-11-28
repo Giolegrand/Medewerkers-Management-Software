@@ -49,7 +49,7 @@ function twig_var_dump(Twig_Environment $env, $context, ...$vars)
     } else {
         var_dump(...$vars);
     }*/
-
+    $count = func_num_args();
     if (2 === $count) {
         $vars = array();
         foreach ($context as $key => $value) {
