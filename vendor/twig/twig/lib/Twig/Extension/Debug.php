@@ -35,7 +35,7 @@ function twig_var_dump(Twig_Environment $env, $context, ...$vars)
         return;
     }
 
-    ob_start();
+    #ob_start();
 
     if (!$vars) {
         $vars = array();
@@ -44,13 +44,16 @@ function twig_var_dump(Twig_Environment $env, $context, ...$vars)
                 $vars[$key] = $value;
             }
         }
-
-        var_dump($vars);
+        dump($vars);
+        #var_dump($vars);
     } else {
-        var_dump(...$vars);
+        #var_dump(...$vars);
+        for ($i = 2; $i < $count; $i++) {
+            dump(func_get_arg($i));
+        }
     }
 
-    return ob_get_clean();
+    #return ob_get_clean();
 }
 
 class_alias('Twig_Extension_Debug', 'Twig\Extension\DebugExtension', false);
