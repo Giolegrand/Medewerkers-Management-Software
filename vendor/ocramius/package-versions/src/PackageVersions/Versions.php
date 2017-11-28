@@ -55,6 +55,7 @@ final class Versions
   'symfony/monolog-bundle' => 'v3.1.2@2b41b8b6d2c6edb1a5494f02f8e4129be2a44784',
   'symfony/orm-pack' => 'v1.0.4@2544f5a96a90a236c23c91052e76c58367bba49c',
   'symfony/polyfill-mbstring' => 'v1.6.0@2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296',
+  'symfony/polyfill-php72' => 'v1.6.0@6de4f4884b97abbbed9f0a84a95ff2ff77254254',
   'symfony/process' => 'v4.0.0-BETA4@14ec41fb318afb39b11fd5d24b880f29b085600b',
   'symfony/property-access' => 'v4.0.0-BETA4@3e543feb45ce8a09dc81c1e72974bb5691a2888b',
   'symfony/routing' => 'v4.0.0-BETA4@faffea9e427c2ab337eba8419de6f5a7ade636ce',
@@ -63,6 +64,7 @@ final class Versions
   'symfony/swiftmailer-bundle' => 'v3.1.6@9728097df87e76e2db71fc41fd7d211c06daea3e',
   'symfony/twig-bridge' => 'v4.0.0-BETA4@5695b11dc81bea7c944a44548569171e43075593',
   'symfony/twig-bundle' => 'v4.0.0-BETA4@c459be47b77d193d415f75a75c100efa02bc8d85',
+  'symfony/var-dumper' => 'v4.0.0-RC2@bbe2c65c7068cac878027fa6eb90676319edb449',
   'symfony/web-server-bundle' => 'v4.0.0-BETA4@80117562a485939da29493bdce7efb96bf0ea9a8',
   'symfony/yaml' => 'v4.0.0-BETA4@686c7fc416b454fe4019f1a225206b133ceb4fc1',
   'twig/extensions' => 'v1.5.1@d188c76168b853481cc75879ea045bf93d718e9c',
@@ -70,12 +72,10 @@ final class Versions
   'zendframework/zend-code' => '3.3.0@6b1059db5b368db769e4392c6cb6cc139e56640d',
   'zendframework/zend-eventmanager' => '3.2.0@9d72db10ceb6e42fb92350c0cb54460da61bd79c',
   'symfony/dotenv' => 'v4.0.0-BETA4@a8b75ab0c7ce3436709d0eef1bbf4b31bb7182d5',
-  'symfony/polyfill-php72' => 'v1.6.0@6de4f4884b97abbbed9f0a84a95ff2ff77254254',
   'symfony/profiler-pack' => 'v1.0.2@ff9e32daca50ce4d98fcfeabdc27c9028cf6747b',
   'symfony/stopwatch' => 'v4.0.0-BETA4@ac0e49150555c703fef6b696d8eaba1db7a3ca03',
-  'symfony/var-dumper' => 'v4.0.0-BETA4@bbe2c65c7068cac878027fa6eb90676319edb449',
   'symfony/web-profiler-bundle' => 'v4.0.0-BETA4@f624f9bd6b9d8ff245652150be2b54bf3a3137f0',
-  '__root__' => 'dev-main-admin-template@91c09569ac5b3a95db370f4bfb6adf56c561c614',
+  '__root__' => 'dev-main-admin-template@eb1f4d0bff04d7fc7aac641c1bb38407b5832132',
 );
 
     private function __construct()

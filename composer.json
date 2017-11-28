@@ -15,6 +15,7 @@
         "symfony/security-bundle": "^4.0@beta",
         "symfony/swiftmailer-bundle": "^3.1",
         "symfony/twig-bundle": "^4.0@beta",
+        "symfony/var-dumper": "^4.0@RC",
         "symfony/web-server-bundle": "^4.0@beta",
         "symfony/yaml": "^4.0",
         "twig/extensions": "^1.5"

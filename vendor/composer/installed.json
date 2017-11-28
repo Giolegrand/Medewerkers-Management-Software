@@ -378,77 +378,6 @@
         ]
     },
     {
-        "name": "symfony/var-dumper",
-        "version": "v4.0.0-BETA4",
-        "version_normalized": "4.0.0.0-beta4",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/var-dumper.git",
-            "reference": "bbe2c65c7068cac878027fa6eb90676319edb449"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/bbe2c65c7068cac878027fa6eb90676319edb449",
-            "reference": "bbe2c65c7068cac878027fa6eb90676319edb449",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.1.3",
-            "symfony/polyfill-mbstring": "~1.0",
-            "symfony/polyfill-php72": "~1.5"
-        },
-        "conflict": {
-            "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
-        },
-        "require-dev": {
-            "ext-iconv": "*",
-            "twig/twig": "~1.34|~2.4"
-        },
-        "suggest": {
-            "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
-            "ext-intl": "To show region name in time zone dump"
-        },
-        "time": "2017-11-07T14:45:01+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "Resources/functions/dump.php"
-            ],
-            "psr-4": {
-                "Symfony\\Component\\VarDumper\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Nicolas Grekas",
-                "email": "p@tchwork.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony mechanism for exploring and dumping PHP variables",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "debug",
-            "dump"
-        ]
-    },
-    {
         "name": "symfony/twig-bridge",
         "version": "v4.0.0-BETA4",
         "version_normalized": "4.0.0.0-beta4",
@@ -4166,6 +4095,77 @@
         "keywords": [
             "log",
             "logging"
+        ]
+    },
+    {
+        "name": "symfony/var-dumper",
+        "version": "v4.0.0-RC2",
+        "version_normalized": "4.0.0.0-RC2",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/var-dumper.git",
+            "reference": "bbe2c65c7068cac878027fa6eb90676319edb449"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/bbe2c65c7068cac878027fa6eb90676319edb449",
+            "reference": "bbe2c65c7068cac878027fa6eb90676319edb449",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3",
+            "symfony/polyfill-mbstring": "~1.0",
+            "symfony/polyfill-php72": "~1.5"
+        },
+        "conflict": {
+            "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
+        },
+        "require-dev": {
+            "ext-iconv": "*",
+            "twig/twig": "~1.34|~2.4"
+        },
+        "suggest": {
+            "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
+            "ext-intl": "To show region name in time zone dump"
+        },
+        "time": "2017-11-07T14:45:01+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "Resources/functions/dump.php"
+            ],
+            "psr-4": {
+                "Symfony\\Component\\VarDumper\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony mechanism for exploring and dumping PHP variables",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "debug",
+            "dump"
         ]
     }
 ]
