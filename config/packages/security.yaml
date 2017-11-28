@@ -7,7 +7,7 @@ security:
         in_memory: { memory: ~ }
         db_provider:
             entity:
-                class: App:Gebruiker
+                class: App:User
                 property: email
     role_hierarchy:
         ROLE_MEDEWERKER_MANAGEMENT:
