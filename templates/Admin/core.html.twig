@@ -289,7 +289,7 @@
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li><a href="{{ path("registrations") }}"><i class="fa fa-users"></i> <span>Aanmeldingen</span></a></li>
+            <li><a href="{#{ path("registrations") }#}"><i class="fa fa-users"></i> <span>Aanmeldingen</span></a></li>
                     {% if is_granted("ROLE_AFDELING_MANAGEMENT") %}
                     <li>
                       <a aria-expanded="false" href="#" class="has-arrow">Mijn Afdeling</a>
