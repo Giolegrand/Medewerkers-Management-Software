@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Round Texel Medewerkers {% block title %}{% endblock %}</title>
+    <title>{{ "%s %s"|format(company_name,application_name) }} {#Round Texel Medewerkers#}{% block title %}{% endblock %}</title>
     {% block stylesheets %}
             <link rel="stylesheet" href="assets/vendor/bootstrap/dist/css/bootstrap.min.css">
             <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
@@ -326,9 +326,8 @@
         <!-- Main content -->
         <section class="content container-fluid">
 
-          <!--------------------------
-            | Your Page Content Here |
-            -------------------------->
+          {% block content %}
+          {% endblock %}
 
         </section>
         <!-- /.content -->
@@ -342,7 +341,7 @@
           Anything you want
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="{{ website_url }}">{{ website_name }}</a>.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->
