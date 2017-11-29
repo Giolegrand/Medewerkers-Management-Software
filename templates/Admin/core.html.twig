@@ -289,8 +289,28 @@
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+            <li><a href="{{ path("registrations") }}"><i class="fa fa-users"></i> <span>Aanmeldingen</span></a></li>
+                    {% if is_granted("ROLE_AFDELING_MANAGEMENT") %}
+                    <li>
+                      <a aria-expanded="false" href="#" class="has-arrow">Mijn Afdeling</a>
+                        <ul aria-expanded="false">
+                            <li role="presentation"><a href="{# path("employees")#}">Mijn Medewerkers</a></li>
+                            <li role="presentation"><a href="{# path("jobsDepartment") #}">Mijn Taken</a></li>
+                            <li role="presentation"><a href="{# path("rightsDepartment")">Mijn Rechten</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="{# path("settingsDepartment") #}">Instellingen </a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    <li><a aria-expanded="false" href="#" class="has-arrow">Software Instellingen</a>
+                        <ul aria-expanded="false">
+                            <li role="presentation"><a href="{# path("departments") #}">Afdelingen </a></li>
+                            <li role="presentation"><a href="{# path("accounts") #}">Accounts </a></li>
+                            <li role="presentation"><a href="{# path("settings") #}">Software </a></li>
+                            <li role="presentation"><a href="#">Over </a></li>
+                        </ul>
+                    </li>
+            {#<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
             <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
@@ -302,7 +322,7 @@
                 <li><a href="#">Link in level 2</a></li>
                 <li><a href="#">Link in level 2</a></li>
               </ul>
-            </li>
+            </li>#}
           </ul>
           <!-- /.sidebar-menu -->
         </section>
