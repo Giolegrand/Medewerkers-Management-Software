@@ -218,7 +218,7 @@
                     <img src="assets/vendor/AdminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                     <p>
-                      {{ "%s %s %s"|format(app.user.employee.firstname,app.user.employee.abbriviation,app.user.employee.surname) }} - {{ app.user.roles[5:]|title }}
+                      {{ "%s %s %s"|format(app.user.employee.firstname,app.user.employee.abbriviation,app.user.employee.surname) }} - {{ app.user.roles|slice(5)|title }}
                       {#<small>Member since Nov. 2012</small>#}
                     </p>
                   </li>
