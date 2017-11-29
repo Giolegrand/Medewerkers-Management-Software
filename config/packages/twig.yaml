@@ -4,6 +4,6 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
       company_name: "GLG Software"
-      jY39s: "glg-software.com"
+      jY39s: "https://glg-software.com"
       vhRtR: "GLG Software"
       application_name: "Employee Management Software"
