@@ -18,7 +18,11 @@ class ProjectServiceContainer extends Container
 {
     private $parameters;
     private $targetDirs = array();
-    private $privates = array();
+
+    /**
+     * @internal but protected for BC on cache:clear
+     */
+    protected $privates = array();
 
     public function __construct()
     {
@@ -72,13 +76,7 @@ class ProjectServiceContainer extends Container
      */
     protected function getBarServiceService()
     {
-        $a = ($this->privates['baz_service'] ?? $this->privates['baz_service'] = new \stdClass());
-
-        if (isset($this->services['bar_service'])) {
-            return $this->services['bar_service'];
-        }
-
-        return $this->services['bar_service'] = new \stdClass($a);
+        return $this->services['bar_service'] = new \stdClass(($this->privates['baz_service'] ?? $this->privates['baz_service'] = new \stdClass()));
     }
 
     /**
@@ -162,15 +160,11 @@ class ProjectServiceContainer extends Container
      */
     protected function getTranslator3Service()
     {
-        $a = ($this->services['translator.loader_3'] ?? $this->services['translator.loader_3'] = new \stdClass());
-
-        if (isset($this->services['translator_3'])) {
-            return $this->services['translator_3'];
-        }
-
         $this->services['translator_3'] = $instance = new \Symfony\Component\DependencyInjection\Tests\Fixtures\StubbedTranslator(new \Symfony\Component\DependencyInjection\ServiceLocator(array('translator.loader_3' => function () {
             return ($this->services['translator.loader_3'] ?? $this->services['translator.loader_3'] = new \stdClass());
         })));
+
+        $a = ($this->services['translator.loader_3'] ?? $this->services['translator.loader_3'] = new \stdClass());
 
         $instance->addResource('db', $a, 'nl');
         $instance->addResource('db', $a, 'en');

@@ -18,7 +18,11 @@ class ProjectServiceContainer extends Container
 {
     private $parameters;
     private $targetDirs = array();
-    private $privates = array();
+
+    /**
+     * @internal but protected for BC on cache:clear
+     */
+    protected $privates = array();
 
     public function __construct()
     {
@@ -124,10 +128,6 @@ class ProjectServiceContainer extends Container
     {
         $a = ($this->services['foo.baz'] ?? $this->getFoo_BazService());
 
-        if (isset($this->services['bar'])) {
-            return $this->services['bar'];
-        }
-
         $this->services['bar'] = $instance = new \Bar\FooClass('foo', $a, $this->getParameter('foo_bar'));
 
         $a->configure($instance);
@@ -166,18 +166,12 @@ class ProjectServiceContainer extends Container
      */
     protected function getConfiguredServiceService()
     {
-        $a = ($this->services['baz'] ?? $this->getBazService());
-
-        if (isset($this->services['configured_service'])) {
-            return $this->services['configured_service'];
-        }
-
-        $b = new \ConfClass();
-        $b->setFoo($a);
-
         $this->services['configured_service'] = $instance = new \stdClass();
 
-        $b->configureStdClass($instance);
+        $a = new \ConfClass();
+        $a->setFoo(($this->services['baz'] ?? $this->getBazService()));
+
+        $a->configureStdClass($instance);
 
         return $instance;
     }
@@ -237,13 +231,7 @@ class ProjectServiceContainer extends Container
      */
     protected function getFactoryServiceService()
     {
-        $a = ($this->services['foo.baz'] ?? $this->getFoo_BazService());
-
-        if (isset($this->services['factory_service'])) {
-            return $this->services['factory_service'];
-        }
-
-        return $this->services['factory_service'] = $a->getInstance();
+        return $this->services['factory_service'] = ($this->services['foo.baz'] ?? $this->getFoo_BazService())->getInstance();
     }
 
     /**
@@ -253,13 +241,7 @@ class ProjectServiceContainer extends Container
      */
     protected function getFactoryServiceSimpleService()
     {
-        $a = ($this->privates['factory_simple'] ?? $this->getFactorySimpleService());
-
-        if (isset($this->services['factory_service_simple'])) {
-            return $this->services['factory_service_simple'];
-        }
-
-        return $this->services['factory_service_simple'] = $a->getInstance();
+        return $this->services['factory_service_simple'] = ($this->privates['factory_simple'] ?? $this->getFactorySimpleService())->getInstance();
     }
 
     /**
@@ -270,10 +252,6 @@ class ProjectServiceContainer extends Container
     protected function getFooService()
     {
         $a = ($this->services['foo.baz'] ?? $this->getFoo_BazService());
-
-        if (isset($this->services['foo'])) {
-            return $this->services['foo'];
-        }
 
         $this->services['foo'] = $instance = \Bar\FooClass::getInstance('foo', $a, array('bar' => 'foo is bar', 'foobar' => 'bar'), true, $this);
 
@@ -318,9 +296,9 @@ class ProjectServiceContainer extends Container
      */
     protected function getFooWithInlineService()
     {
-        $a = new \Bar();
-
         $this->services['foo_with_inline'] = $instance = new \Foo();
+
+        $a = new \Bar();
 
         $a->pub = 'pub';
         $a->setBaz(($this->services['baz'] ?? $this->getBazService()));
@@ -366,7 +344,7 @@ class ProjectServiceContainer extends Container
      */
     protected function getMethodCall1Service()
     {
-        require_once '%path%foo.php';
+        include_once '%path%foo.php';
 
         $this->services['method_call1'] = $instance = new \Bar\FooClass();
 

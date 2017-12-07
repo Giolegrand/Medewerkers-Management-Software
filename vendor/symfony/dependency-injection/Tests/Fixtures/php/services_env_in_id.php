@@ -18,28 +18,23 @@ class ProjectServiceContainer extends Container
 {
     private $parameters;
     private $targetDirs = array();
-    private $privates = array();
+
+    /**
+     * @internal but protected for BC on cache:clear
+     */
+    protected $privates = array();
 
     public function __construct()
     {
-        $dir = __DIR__;
-        for ($i = 1; $i <= 5; ++$i) {
-            $this->targetDirs[$i] = $dir = dirname($dir);
-        }
         $this->parameters = $this->getDefaultParameters();
 
         $this->services = $this->privates = array();
         $this->methodMap = array(
-            'Symfony\\Component\\DependencyInjection\\Tests\\Fixtures\\includes\\HotPath\\C1' => 'getC1Service',
-            'Symfony\\Component\\DependencyInjection\\Tests\\Fixtures\\includes\\HotPath\\C2' => 'getC2Service',
+            'bar' => 'getBarService',
+            'foo' => 'getFooService',
         );
 
         $this->aliases = array();
-
-        require_once $this->targetDirs[1].'/includes/HotPath/I1.php';
-        require_once $this->targetDirs[1].'/includes/HotPath/P1.php';
-        require_once $this->targetDirs[1].'/includes/HotPath/T1.php';
-        require_once $this->targetDirs[1].'/includes/HotPath/C1.php';
     }
 
     public function reset()
@@ -63,31 +58,29 @@ class ProjectServiceContainer extends Container
         return array(
             'Psr\\Container\\ContainerInterface' => true,
             'Symfony\\Component\\DependencyInjection\\ContainerInterface' => true,
-            'Symfony\\Component\\DependencyInjection\\Tests\\Fixtures\\includes\\HotPath\\C3' => true,
+            'bar_%env(BAR)%' => true,
+            'baz_%env(BAR)%' => true,
         );
     }
 
     /**
-     * Gets the public 'Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C1' shared service.
+     * Gets the public 'bar' shared service.
      *
-     * @return \Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C1
+     * @return \stdClass
      */
-    protected function getC1Service()
+    protected function getBarService()
     {
-        return $this->services['Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C1'] = new \Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C1();
+        return $this->services['bar'] = new \stdClass(($this->privates['bar_%env(BAR)%'] ?? $this->privates['bar_%env(BAR)%'] = new \stdClass()));
     }
 
     /**
-     * Gets the public 'Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C2' shared service.
+     * Gets the public 'foo' shared service.
      *
-     * @return \Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C2
+     * @return \stdClass
      */
-    protected function getC2Service()
+    protected function getFooService()
     {
-        require_once $this->targetDirs[1].'/includes/HotPath/C2.php';
-        require_once $this->targetDirs[1].'/includes/HotPath/C3.php';
-
-        return $this->services['Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C2'] = new \Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C2(new \Symfony\Component\DependencyInjection\Tests\Fixtures\includes\HotPath\C3());
+        return $this->services['foo'] = new \stdClass(($this->privates['bar_%env(BAR)%'] ?? $this->privates['bar_%env(BAR)%'] = new \stdClass()), array('baz_'.$this->getEnv('string:BAR') => new \stdClass()));
     }
 
     public function getParameter($name)
@@ -154,7 +147,7 @@ class ProjectServiceContainer extends Container
     protected function getDefaultParameters()
     {
         return array(
-            'inline_requires' => true,
+            'env(BAR)' => 'bar',
         );
     }
 }

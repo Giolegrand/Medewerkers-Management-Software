@@ -152,11 +152,7 @@ class DisconnectedMetadataFactory
     {
         $namespace = str_replace('\\', '/', $namespace);
         $search = str_replace('\\', '/', $path);
-        if ($namespace === 'App/Entity') {
-            $destination = str_replace('/Entity', '', $search, $c);
-        } else {
-            $destination = str_replace('/'.$namespace, '', $search, $c);
-        }
+        $destination = str_replace('/'.$namespace, '', $search, $c);
 
         if ($c != 1) {
             throw new \RuntimeException(sprintf('Can\'t find base path for "%s" (path: "%s", destination: "%s").', $name, $path, $destination));

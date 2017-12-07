@@ -18,7 +18,11 @@ class ProjectServiceContainer extends Container
 {
     private $parameters;
     private $targetDirs = array();
-    private $privates = array();
+
+    /**
+     * @internal but protected for BC on cache:clear
+     */
+    protected $privates = array();
 
     public function __construct()
     {
@@ -63,13 +67,7 @@ class ProjectServiceContainer extends Container
      */
     protected function getBarServiceService()
     {
-        $a = ($this->privates['baz_service'] ?? $this->privates['baz_service'] = new \stdClass());
-
-        if (isset($this->services['bar_service'])) {
-            return $this->services['bar_service'];
-        }
-
-        return $this->services['bar_service'] = new \stdClass($a);
+        return $this->services['bar_service'] = new \stdClass(($this->privates['baz_service'] ?? $this->privates['baz_service'] = new \stdClass()));
     }
 
     /**
@@ -79,12 +77,6 @@ class ProjectServiceContainer extends Container
      */
     protected function getFooServiceService()
     {
-        $a = ($this->privates['baz_service'] ?? $this->privates['baz_service'] = new \stdClass());
-
-        if (isset($this->services['foo_service'])) {
-            return $this->services['foo_service'];
-        }
-
-        return $this->services['foo_service'] = new \stdClass($a);
+        return $this->services['foo_service'] = new \stdClass(($this->privates['baz_service'] ?? $this->privates['baz_service'] = new \stdClass()));
     }
 }

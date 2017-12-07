@@ -17,6 +17,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\CacheClearer\CacheClearerInterface;
 use Symfony\Component\HttpKernel\RebootableInterface;
@@ -91,6 +92,9 @@ EOF
         $io->comment(sprintf('Clearing the cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
         $this->cacheClearer->clear($realCacheDir);
 
+        // The current event dispatcher is stale, let's not use it anymore
+        $this->getApplication()->setDispatcher(new EventDispatcher());
+
         if ($input->getOption('no-warmup')) {
             $this->filesystem->rename($realCacheDir, $oldCacheDir);
         } else {
@@ -101,10 +105,11 @@ EOF
             $io->comment('Removing old cache directory...');
         }
 
-        $this->filesystem->remove($oldCacheDir);
-
-        // The current event dispatcher is stale, let's not use it anymore
-        $this->getApplication()->setDispatcher(new EventDispatcher());
+        try {
+            $this->filesystem->remove($oldCacheDir);
+        } catch (IOException $e) {
+            $io->warning($e->getMessage());
+        }
 
         if ($output->isVerbose()) {
             $io->comment('Finished');

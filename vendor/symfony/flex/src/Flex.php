@@ -118,7 +118,11 @@ class Flex implements PluginInterface, EventSubscriberInterface
     {
         $operation = $event->getOperation();
         if ($this->shouldRecordOperation($operation)) {
-            $this->operations[] = $operation;
+            if ($operation instanceof InstallOperation && 'symfony/framework-bundle' === $operation->getPackage()->getName()) {
+                array_unshift($this->operations, $operation);
+            } else {
+                $this->operations[] = $operation;
+            }
         }
     }
 
@@ -328,7 +332,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
             return $origin;
         }
 
-        return sprintf('<info>%s</> (<comment>%s</>): From %s', $matches[1], $matches[2], 'auto-generated recipe' === $matches[3] ? '<comment>'.$matches[3].'</>' : $matches[3]);
+        return sprintf('<info>%s</> (<comment>>=%s</>): From %s', $matches[1], $matches[2], 'auto-generated recipe' === $matches[3] ? '<comment>'.$matches[3].'</>' : $matches[3]);
     }
 
     private function shouldRecordOperation(OperationInterface $operation): bool

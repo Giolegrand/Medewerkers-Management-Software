@@ -13,13 +13,6 @@ namespace Symfony\Bundle\FrameworkBundle\DependencyInjection;
 
 use Doctrine\Common\Annotations\Reader;
 use Symfony\Bridge\Monolog\Processor\DebugProcessor;
-use Symfony\Bundle\FrameworkBundle\Command\RouterDebugCommand;
-use Symfony\Bundle\FrameworkBundle\Command\RouterMatchCommand;
-use Symfony\Bundle\FrameworkBundle\Command\TranslationDebugCommand;
-use Symfony\Bundle\FrameworkBundle\Command\TranslationUpdateCommand;
-use Symfony\Bundle\FrameworkBundle\Command\WorkflowDumpCommand;
-use Symfony\Bundle\FrameworkBundle\Command\XliffLintCommand;
-use Symfony\Bundle\FrameworkBundle\Command\YamlLintCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Routing\AnnotatedRouteControllerLoader;
@@ -81,6 +74,7 @@ use Symfony\Component\Validator\ObjectInitializerInterface;
 use Symfony\Component\WebLink\HttpHeaderSerializer;
 use Symfony\Component\Workflow;
 use Symfony\Component\Yaml\Command\LintCommand as BaseYamlLintCommand;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * FrameworkExtension.
@@ -120,10 +114,10 @@ class FrameworkExtension extends Extension
             $loader->load('console.xml');
 
             if (!class_exists(BaseXliffLintCommand::class)) {
-                $container->removeDefinition(XliffLintCommand::class);
+                $container->removeDefinition('console.command.xliff_lint');
             }
             if (!class_exists(BaseYamlLintCommand::class)) {
-                $container->removeDefinition(YamlLintCommand::class);
+                $container->removeDefinition('console.command.yaml_lint');
             }
         }
 
@@ -142,10 +136,6 @@ class FrameworkExtension extends Extension
         if ($this->isConfigEnabled($container, $config['translator']) || $this->isConfigEnabled($container, $config['form']) || $this->isConfigEnabled($container, $config['validation'])) {
             if (!class_exists('Symfony\Component\Translation\Translator') && $this->isConfigEnabled($container, $config['translator'])) {
                 throw new LogicException('Translation support cannot be enabled as the Translation component is not installed.');
-            }
-
-            if (!class_exists('Symfony\Component\Translation\Translator') && $this->isConfigEnabled($container, $config['validation'])) {
-                throw new LogicException('Validation support cannot be enabled as the Translation component is not installed.');
             }
 
             if (class_exists(Translator::class)) {
@@ -191,6 +181,10 @@ class FrameworkExtension extends Extension
         }
 
         if ($this->isConfigEnabled($container, $config['form'])) {
+            if (!class_exists('Symfony\Component\Form\Form')) {
+                throw new LogicException('Form support cannot be enabled as the Form component is not installed.');
+            }
+
             $this->formConfigEnabled = true;
             $this->registerFormConfiguration($config, $container, $loader);
 
@@ -203,7 +197,7 @@ class FrameworkExtension extends Extension
                 $container->removeDefinition('form.type_guesser.validator');
             }
         } else {
-            $container->removeDefinition('Symfony\Component\Form\Command\DebugCommand');
+            $container->removeDefinition('console.command.form_debug');
         }
 
         $this->registerSecurityCsrfConfiguration($config['csrf_protection'], $container, $loader);
@@ -238,6 +232,10 @@ class FrameworkExtension extends Extension
         $this->registerPropertyAccessConfiguration($config['property_access'], $container, $loader);
 
         if ($this->isConfigEnabled($container, $config['serializer'])) {
+            if (!class_exists('Symfony\Component\Serializer\Serializer')) {
+                throw new LogicException('Serializer support cannot be enabled as the Serializer component is not installed.');
+            }
+
             $this->registerSerializerConfiguration($config['serializer'], $container, $loader);
         }
 
@@ -431,7 +429,7 @@ class FrameworkExtension extends Extension
     private function registerWorkflowConfiguration(array $config, ContainerBuilder $container, XmlFileLoader $loader)
     {
         if (!$config['enabled']) {
-            $container->removeDefinition(WorkflowDumpCommand::class);
+            $container->removeDefinition('console.command.workflow_dump');
 
             return;
         }
@@ -603,8 +601,8 @@ class FrameworkExtension extends Extension
     private function registerRouterConfiguration(array $config, ContainerBuilder $container, XmlFileLoader $loader)
     {
         if (!$this->isConfigEnabled($container, $config)) {
-            $container->removeDefinition(RouterDebugCommand::class);
-            $container->removeDefinition(RouterMatchCommand::class);
+            $container->removeDefinition('console.command.router_debug');
+            $container->removeDefinition('console.command.router_match');
 
             return;
         }
@@ -857,8 +855,8 @@ class FrameworkExtension extends Extension
     private function registerTranslatorConfiguration(array $config, ContainerBuilder $container, LoaderInterface $loader)
     {
         if (!$this->isConfigEnabled($container, $config)) {
-            $container->removeDefinition(TranslationDebugCommand::class);
-            $container->removeDefinition(TranslationUpdateCommand::class);
+            $container->removeDefinition('console.command.translation_debug');
+            $container->removeDefinition('console.command.translation_update');
 
             return;
         }
@@ -930,6 +928,7 @@ class FrameworkExtension extends Extension
                     return 2 === substr_count($file->getBasename(), '.') && preg_match('/\.\w+$/', $file->getBasename());
                 })
                 ->in($dirs)
+                ->sortByName()
             ;
 
             foreach ($finder as $file) {
@@ -1039,7 +1038,7 @@ class FrameworkExtension extends Extension
 
     private function registerMappingFilesFromDir($dir, callable $fileRecorder)
     {
-        foreach (Finder::create()->followLinks()->files()->in($dir)->name('/\.(xml|ya?ml)$/') as $file) {
+        foreach (Finder::create()->followLinks()->files()->in($dir)->name('/\.(xml|ya?ml)$/')->sortByName() as $file) {
             $fileRecorder($file->getExtension(), $file->getRealPath());
         }
     }
@@ -1159,6 +1158,10 @@ class FrameworkExtension extends Extension
         if (!class_exists('Symfony\Component\PropertyAccess\PropertyAccessor')) {
             $container->removeAlias('serializer.property_accessor');
             $container->removeDefinition('serializer.normalizer.object');
+        }
+
+        if (!class_exists(Yaml::class)) {
+            $container->removeDefinition('serializer.encoder.yaml');
         }
 
         $serializerLoaders = array();

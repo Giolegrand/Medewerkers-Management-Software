@@ -1212,7 +1212,7 @@ class ProcessTest extends TestCase
     {
         $input = new InputStream();
 
-        $process = $this->getProcessForCode('echo \'ping\'; stream_copy_to_stream(STDIN, STDOUT);');
+        $process = $this->getProcessForCode('echo \'ping\'; echo fread(STDIN, 4); echo fread(STDIN, 4);');
         $process->setInput($input);
 
         $process->start(function ($type, $data) use ($input) {
@@ -1452,20 +1452,7 @@ Array
 )
 
 EOTXT;
-
-        if (\PHP_VERSION_ID >= 70200) {
-            $expected = <<<EOTXT
-Array
-(
-    [0] => Standard input code
-    [1] => a
-    [2] => 
-    [3] => b
-)
-
-EOTXT;
-        }
-        $this->assertSame($expected, $p->getOutput());
+        $this->assertSame($expected, str_replace('Standard input code', '-', $p->getOutput()));
     }
 
     public function provideEscapeArgument()

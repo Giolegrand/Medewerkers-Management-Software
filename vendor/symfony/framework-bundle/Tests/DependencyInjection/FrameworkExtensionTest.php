@@ -12,7 +12,6 @@
 namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection;
 
 use Doctrine\Common\Annotations\Annotation;
-use Symfony\Bundle\FrameworkBundle\Command\WorkflowDumpCommand;
 use Symfony\Bundle\FullStack;
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddAnnotationsCachedReaderPass;
@@ -307,7 +306,7 @@ abstract class FrameworkExtensionTest extends TestCase
         $container = $this->createContainerFromFile('workflows_enabled');
 
         $this->assertTrue($container->has(Registry::class));
-        $this->assertTrue($container->hasDefinition(WorkflowDumpCommand::class));
+        $this->assertTrue($container->hasDefinition('console.command.workflow_dump'));
     }
 
     public function testRouter()
@@ -316,7 +315,7 @@ abstract class FrameworkExtensionTest extends TestCase
 
         $this->assertTrue($container->has('router'), '->registerRouterConfiguration() loads routing.xml');
         $arguments = $container->findDefinition('router')->getArguments();
-        $this->assertEquals($container->getParameter('kernel.root_dir').'/config/routing.xml', $container->getParameter('router.resource'), '->registerRouterConfiguration() sets routing resource');
+        $this->assertEquals($container->getParameter('kernel.project_dir').'/config/routing.xml', $container->getParameter('router.resource'), '->registerRouterConfiguration() sets routing resource');
         $this->assertEquals('%router.resource%', $arguments[1], '->registerRouterConfiguration() sets routing resource');
         $this->assertEquals('xml', $arguments[2]['resource_type'], '->registerRouterConfiguration() sets routing resource type');
     }
@@ -497,7 +496,7 @@ abstract class FrameworkExtensionTest extends TestCase
             '->registerTranslatorConfiguration() finds translation resources in custom paths'
         );
         $this->assertContains(
-            strtr(__DIR__.'/config/translations/test_default.en.xlf', '/', DIRECTORY_SEPARATOR),
+            strtr(__DIR__.'/translations/test_default.en.xlf', '/', DIRECTORY_SEPARATOR),
             $files,
             '->registerTranslatorConfiguration() finds translation resources in default path'
         );
