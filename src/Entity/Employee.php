@@ -66,6 +66,13 @@ class Employee
     /**
      * @var string
      *
+     * @ORM\Column(name="picture", type="string", length=255)
+     */
+    private $picture;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="postalCode", type="string", length=10)
      */
     private $postalCode;
@@ -237,6 +244,28 @@ class Employee
     public function getAbbriviation()
     {
         return $this->abbriviation;
+    }
+
+    /**
+     * Get Picture
+     *
+     * @return string
+     */
+    public function getPicture(){
+        return $this->picture;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     * 
+     * @return Employee
+     */
+    public function setPicture($picture){
+        $this->picture = $picture;
+
+        return $this;
     }
 
     /**
